@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio In &amp; Out | Architecture &amp; Interior Design, Mumbai</title>
+<meta name="description" content="Studio In & Out is a Mumbai architecture and interior design studio founded by Abdeali Kanchwala and Ar. Sakina Kanchwala. A perspective beyond aesthetics.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<meta property="og:title" content="Studio In & Out | Architecture & Interior Design, Mumbai">
+<meta property="og:description" content="A perspective beyond aesthetics. Architecture, interiors and 3D visualisation.">
+<meta property="og:image" content="assets/hero2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+/* Layout: one column of full-width bands; projects are text-left / photos-right on wide screens, stacked on phones. Only interaction: scrolling. */
+:root{
+  color-scheme:light;
+  --plaster:#F3F3F0;
+  --paper:#FFFFFF;
+  --stone:#E3E1DC;
+  --concrete:#7E7C77;
+  --ink:#000000;
+  --text:#1E1E1E;
+  --marigold:#F9CE0E;
+  --pad:max(20px, min(4vw, 64px));
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.22,.7,.15,1);
+  --head:68px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 12px)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--plaster);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.amp{font-family:var(--serif);font-style:italic;color:var(--marigold)}
+.wrap{padding-left:max(var(--pad), env(safe-area-inset-left,0px));padding-right:max(var(--pad), env(safe-area-inset-right,0px))}
+.muted{color:var(--concrete)}
+p{max-width:62ch}
+h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;text-wrap:balance}
+.sec-title{font-size:clamp(44px,6vw,96px);line-height:.95}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px 32px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
+.sec-head p{max-width:40ch;color:var(--concrete)}
+
+/* architectural column guides */
+.guides{position:fixed;inset:0;pointer-events:none;z-index:0;padding:0 var(--pad);display:grid;grid-template-columns:repeat(4,1fr)}
+.guides span{border-left:1px solid rgba(0,0,0,.05)}
+.guides span:last-child{border-right:1px solid rgba(0,0,0,.05)}
+main,footer{position:relative;z-index:1}
+
+/* header: logo + five links, always visible */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(243,243,240,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.06);padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{height:var(--head);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.top .logo img{height:36px;width:auto;mix-blend-mode:multiply}
+.nav{display:flex;gap:clamp(14px,2.4vw,36px);font-size:14px;font-weight:500}
+.nav a{position:relative;padding:6px 0;white-space:nowrap}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:hover::after,.nav a.cur::after{transform:scaleX(1)}
+.nav a.cur{color:var(--ink)}
+@media(max-width:720px){
+  :root{--head:108px}
+  .top .wrap{flex-direction:column;align-items:flex-start;justify-content:center;gap:8px}
+  .top .logo img{height:30px}
+  .nav{width:100%;justify-content:space-between;gap:10px;font-size:13px}
+}
+
+/* hero: plays once on load (about 2s) */
+.hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden}
+.ap-img{position:absolute;inset:0}
+.ap-img img{width:100%;height:100%;object-fit:cover;object-position:68% 55%;transform-origin:center;will-change:transform}
+.ap-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55));z-index:2;pointer-events:none}
+.ap-word{position:absolute;top:50%;font-family:var(--serif);font-size:clamp(84px,17vw,300px);line-height:.8;letter-spacing:-.02em;color:var(--ink);will-change:transform,opacity}
+.ap-word.l{right:calc(50% + var(--gap,200px))}
+.ap-word.r{left:calc(50% + var(--gap,200px))}
+.ap-amp{position:absolute;left:50%;top:50%;font-size:clamp(90px,13vw,220px);line-height:1;transform:translate(-50%,-56%);z-index:3;pointer-events:none}
+.ap-cap{position:absolute;left:max(var(--pad), env(safe-area-inset-left,0px));right:var(--pad);bottom:clamp(32px,6vh,72px);color:#fff;z-index:4}
+.ap-cap h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7.4vw,124px);line-height:.95;letter-spacing:-.01em;max-width:11ch}
+.ap-cap p{margin-top:16px;font-size:15px;font-weight:500;opacity:.92}
+.ap-cue{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:14px;font-weight:500;color:#fff}
+.ap-cue i{width:1px;height:28px;background:#fff;transform-origin:top;animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* the starting state, only when scripts run */
+.js .hero:not(.done) .ap-cap,.js .hero:not(.done) .ap-shade{opacity:0}
+.hero .ap-cap,.hero .ap-shade{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .hero:not(.done) .ap-cap{transform:translateY(24px)}
+html:not(.js) .ap-word,html:not(.js) .ap-amp{display:none}
+@media(max-width:700px){.ap-word{font-size:clamp(64px,22vw,140px);top:auto}.ap-word.l{right:auto;left:var(--pad);bottom:calc(50% + 24vh)}.ap-word.r{left:auto;right:var(--pad);top:calc(50% + 24vh)}}
+
+/* statement */
+.statement{padding-block:clamp(100px,13vw,200px) clamp(80px,10vw,140px)}
+.st-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,6vw,110px);align-items:center}
+.st-grid>*{min-width:0}
+.reveal-text{font-family:var(--serif);font-size:clamp(34px,4.4vw,74px);line-height:1.06;max-width:18ch}
+.js .reveal-text .w{color:#c9c7c2;transition:color .5s}
+.reveal-text .w.on{color:var(--ink)}
+.st-note{display:grid;grid-template-columns:auto 1fr;gap:18px 22px;margin-top:clamp(36px,5vw,64px);max-width:560px}
+.st-note::before{content:"";width:48px;height:3px;background:var(--marigold);margin-top:14px}
+.st-note p{font-size:clamp(17px,1.35vw,20px);color:#3e3e3e}
+.st-media{position:relative;height:clamp(440px,46vw,700px)}
+.st-arch{position:absolute;right:0;top:0;width:78%;height:88%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--stone)}
+.st-small{position:absolute;left:0;bottom:0;width:42%;aspect-ratio:3/4;overflow:hidden;border:10px solid var(--plaster);background:var(--stone)}
+.st-media img{width:100%;height:100%;object-fit:cover}
+.st-ring{position:absolute;right:-12px;top:46%;width:clamp(70px,8vw,120px);aspect-ratio:1;border-radius:50%;border:1.5px solid var(--marigold)}
+@media(max-width:860px){.st-grid{grid-template-columns:1fr}.st-media{height:min(110vw,560px)}.st-ring{right:0}}
+
+/* philosophy: three statements, all readable at once */
+.creed{background:var(--stone);padding-block:clamp(56px,7vw,110px)}
+.creed-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,52px)}
+.creed-head h2{font-size:clamp(30px,3.2vw,48px);line-height:1}
+.creed-head p{color:#5f5d58;max-width:36ch}
+.creed-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.creed-grid>div{padding:clamp(22px,2.6vw,36px) clamp(16px,2.4vw,36px) 0 0;display:grid;gap:18px;align-content:start}
+.creed-grid>div+div{border-left:1px solid rgba(0,0,0,.18);padding-left:clamp(16px,2.4vw,36px)}
+.creed-grid .mark{width:14px;height:14px;border-radius:50%;background:var(--marigold)}
+.creed-grid h3{font-size:clamp(34px,3.8vw,62px);line-height:1}
+.creed-grid h3 em{font-style:italic}
+@media(max-width:760px){.creed-grid{grid-template-columns:1fr}.creed-grid>div{padding:22px 0}.creed-grid>div+div{border-left:0;border-top:1px solid rgba(0,0,0,.18);padding-left:0}}
+
+/* what we do: same cards on every device */
+.disc{padding-block:clamp(80px,10vw,140px) clamp(40px,6vw,80px)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.card{display:grid;gap:16px;align-content:start;min-width:0}
+.card figure{aspect-ratio:4/5;overflow:hidden;background:var(--stone);position:relative}
+.card figure img{width:100%;height:100%;object-fit:cover}
+.card .tag{position:absolute;left:16px;top:10px;font-size:clamp(40px,4vw,64px);line-height:1;text-shadow:0 2px 14px rgba(0,0,0,.25)}
+.card h3{font-size:clamp(28px,2.6vw,40px);line-height:1}
+.card p{color:#4a4a4a;font-size:16px}
+@media(max-width:860px){.cards{grid-template-columns:1fr;gap:40px}.card figure{aspect-ratio:4/3}}
+
+/* projects: text left, photos right */
+.work{padding-block:clamp(60px,8vw,120px) 0}
+.proj{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,96px);align-items:start;padding-block:clamp(48px,6vw,96px);border-top:1px solid var(--ink)}
+.proj>*{min-width:0}
+.proj-text.stick{position:sticky;top:calc(var(--head) + 28px)}
+.proj-text .no{font-size:14px;color:var(--concrete);font-weight:500}
+.proj-text h3{font-size:clamp(48px,5.6vw,96px);line-height:.92;margin:10px 0 22px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:15px;padding:16px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--stone);margin-bottom:24px}
+.facts dt{color:var(--concrete)}
+.note p{color:#3e3e3e;font-size:16.5px}
+.note p+p{margin-top:14px}
+.proj-media{display:grid;gap:clamp(12px,1.4vw,20px)}
+.proj-media figure{overflow:hidden;background:var(--stone)}
+.proj-media .wide{aspect-ratio:3/2}
+.proj-media .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,20px)}
+.proj-media .tall{aspect-ratio:4/5}
+.proj-media img,.proj-media video{width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){.proj{grid-template-columns:1fr}}
+
+/* gentle reveal on scroll (only with scripts) */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
+
+/* film */
+.film{padding-block:clamp(80px,10vw,150px);display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center}
+.film>*{min-width:0}
+.film h2{font-size:clamp(44px,5.4vw,88px);line-height:.95;max-width:9ch}
+.film p{margin-top:18px;color:#4a4a4a}
+.reels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px);justify-self:end;width:min(620px,100%)}
+.reel{aspect-ratio:9/16;border-radius:200px 200px 0 0;overflow:hidden;background:var(--stone)}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reels .lower{margin-top:clamp(40px,6vw,90px)}
+.reels figcaption{font-size:14px;font-weight:500;margin-top:10px}
+@media(max-width:800px){.film{grid-template-columns:1fr}.reels{justify-self:stretch}}
+.pill{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);padding:14px 24px;border-radius:999px;font:inherit;font-weight:500;font-size:15px;border:0;cursor:pointer;margin-top:24px;transition:background .3s,color .3s}
+.pill:hover{background:var(--marigold);color:var(--ink)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--marigold)}
+.pill:hover i{background:var(--ink)}
+
+/* founders: text left, photo right */
+.founders{padding-block:clamp(80px,10vw,150px);background:var(--paper)}
+.names{font-size:clamp(18px,1.6vw,22px);margin-top:14px;color:var(--concrete)}
+.f-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,96px);align-items:start}
+.f-grid>*{min-width:0}
+.f-copy p{color:#3e3e3e}
+.f-copy p+p{margin-top:16px}
+.f-copy blockquote{font-family:var(--serif);font-size:clamp(28px,2.8vw,44px);line-height:1.08;margin-top:36px;color:var(--ink)}
+.f-copy blockquote::before{content:"";display:block;width:44px;height:3px;background:var(--marigold);margin-bottom:18px}
+.duo-photo figure,.duo-photo{min-width:0}
+.duo-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;background:var(--stone)}
+.duo-photo figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:14px}
+.duo-photo b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,34px);line-height:1.05;color:var(--ink)}
+.duo-photo span{font-size:14px;color:var(--concrete)}
+.duo-photo span:last-child{text-align:right}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr}}
+
+/* contact + contractors: two plain sections */
+.form-sec{padding-block:clamp(80px,10vw,140px)}
+.form-sec.alt{background:var(--stone)}
+.panel{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,96px)}
+.panel>*{min-width:0}
+.panel h2{font-size:clamp(46px,5.6vw,92px);line-height:.95}
+.panel .lead{margin-top:18px;color:#4a4a4a}
+.contact-list{margin-top:32px;display:grid;gap:16px}
+.contact-list small{display:block;font-size:13px;color:var(--concrete);font-weight:500}
+.steps{list-style:none;margin-top:28px;display:grid;gap:16px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font-size:13px;font-weight:600}
+.steps b{font-weight:600;display:block}
+.trades{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.trades span{font-size:13px;border:1px solid #a9a6a0;border-radius:999px;padding:4px 12px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;align-content:start}
+form .full{grid-column:1/-1}
+form label{display:grid;gap:4px;font-size:13px;font-weight:500;color:var(--concrete)}
+input,select,textarea{font:inherit;font-size:17px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;border-radius:0;width:100%}
+input:focus,select:focus,textarea:focus{outline:0;border-bottom:2px solid var(--ink)}
+textarea{min-height:90px;resize:vertical}
+form .pill{justify-self:start;margin-top:0}
+form .note{font-size:13px;color:var(--concrete);grid-column:1/-1}
+.sent{display:grid;gap:12px;justify-items:start;padding:18px;background:var(--paper);border-left:3px solid var(--marigold)}
+.sent .pill{margin-top:0}
+@media(max-width:860px){.panel{grid-template-columns:1fr}}
+@media(max-width:520px){form{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) calc(28px + env(safe-area-inset-bottom,0px));overflow:hidden}
+.f-top{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;font-size:15px}
+.f-top h4{color:#fff;font-weight:500;font-size:13px;margin-bottom:10px}
+.f-top a:hover{color:var(--marigold)}
+.f-top div{display:grid;gap:6px;align-content:start}
+.wordmark{font-family:var(--serif);color:#fff;font-size:clamp(80px,21vw,370px);line-height:.8;letter-spacing:-.03em;margin-top:clamp(48px,7vw,100px);white-space:nowrap}
+.f-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px;font-size:13px;border-top:1px solid #2a2a2a;padding-top:18px}
+@media(max-width:760px){.f-top{grid-template-columns:1fr 1fr}}
+
+.wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:54px;height:54px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.wa svg{width:26px;height:26px;fill:#fff}
+</style>
+</head>
+<body>
+
+<div class="guides" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Studio In and Out, home"><img src="assets/logo.png" alt="Studio In &amp; Out"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#studio">Studio</a>
+      <a href="#work">Projects</a>
+      <a href="#founders">Founders</a>
+      <a href="#contact">Contact</a>
+      <a href="#contractors">Contractors</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-label="Studio In and Out">
+    <div class="ap-img"><img src="assets/hero2.jpg" alt="Bedroom with a misty forest mural and a wide window over the Mumbai skyline"></div>
+    <div class="ap-shade"></div>
+    <span class="ap-word l" aria-hidden="true">In</span>
+    <span class="ap-amp amp" aria-hidden="true">&amp;</span>
+    <span class="ap-word r" aria-hidden="true">Out</span>
+    <div class="ap-cap">
+      <h1>A perspective beyond aesthetics.</h1>
+      <p>Architecture | Interior | 3D Visualisation, Mumbai</p>
+      <a class="ap-cue" href="#studio"><i></i>Scroll down</a>
+    </div>
+  </section>
+
+  <section class="statement wrap" id="studio">
+    <div class="st-grid">
+      <div>
+        <p class="reveal-text">We don't simply design spaces. We shape experiences, evoke emotions, and create environments that leave a lasting impression.</p>
+        <div class="st-note">
+          <p>At Studio In <span class="amp">&amp;</span> Out, every detail has intention, every element has purpose, and every space tells a story.</p>
+        </div>
+      </div>
+      <div class="st-media" aria-hidden="true">
+        <figure class="st-arch"><img src="assets/ar_g.jpg" alt=""></figure>
+        <figure class="st-small"><img src="assets/st_e.jpg" alt=""></figure>
+        <span class="st-ring"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="creed" aria-labelledby="creed-h">
+    <div class="wrap">
+      <div class="creed-head">
+        <h2 id="creed-h">Our philosophy is simple</h2>
+        <p>Three ideas guide every project, from the first sketch to the last cushion.</p>
+      </div>
+      <div class="creed-grid">
+        <div class="rv"><span class="mark"></span><h3>Design with <em>purpose.</em></h3></div>
+        <div class="rv"><span class="mark"></span><h3>Create with <em>character.</em></h3></div>
+        <div class="rv"><span class="mark"></span><h3>Inspire through <em>every detail.</em></h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="disc wrap" aria-labelledby="disc-h">
+    <div class="sec-head">
+      <h2 class="sec-title" id="disc-h">What we do</h2>
+      <p>Two perspectives under one roof, so the building and the rooms inside it are designed as one.</p>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <figure><img src="assets/ar_b.jpg" alt="Reading chair against a misty forest mural" loading="lazy"><span class="tag amp">In</span></figure>
+        <h3>Interior design</h3>
+        <p>Homes and workplaces: planning, joinery, materials, lighting and styling.</p>
+      </article>
+      <article class="card rv">
+        <figure><img src="assets/balc_big.jpg" alt="Balcony looking out over the Mumbai skyline" loading="lazy"><span class="tag amp">Out</span></figure>
+        <h3>Architecture</h3>
+        <p>New buildings, renovations and façades, planned around site and purpose.</p>
+      </article>
+      <article class="card rv">
+        <figure><img src="assets/st_b.jpg" alt="Bedroom with a terracotta sculpted panel" loading="lazy"><span class="tag amp">See</span></figure>
+        <h3>3D visualisation</h3>
+        <p>Every room seen in 3D before anything is built, so decisions are made with confidence.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="work wrap" id="work" aria-labelledby="work-h">
+    <div class="sec-head">
+      <h2 class="sec-title" id="work-h">Projects</h2>
+      <p>Recent homes by the studio, each with its story and photographs.</p>
+    </div>
+
+    <article class="proj" id="a3805" aria-labelledby="a3805-h">
+      <div class="proj-text">
+        <span class="no">01 / Studio extension</span>
+        <h3 id="a3805-h">Studio A3805</h3>
+        <dl class="facts"><dt>Area</dt><dd>350 sq. ft.</dd><dt>Scope</dt><dd>Interior design</dd><dt>Key idea</dt><dd>A rotating TV unit that works as a partition</dd></dl>
+        <div class="note"><p>Studio A3805 represents the art of maximization within a compact footprint. Designed as a 350 sq. ft. extension across the passage from the client's existing 3BHK, this project was conceived with a singular vision: to establish a distinct, formal living sanctuary that balances modern entertainment with traditional hospitality.</p><p>The layout is centered around a dynamic architectural intervention: a custom-designed, rotating TV unit. This pivotal element functions as a flexible partition, effectively zoning the studio into two distinct moods while maintaining an open, airy feel.</p><p>On one side lies the contemporary social zone, featuring a plush sofa setup and a bespoke breakfast counter/juice bar. The bar becomes a visual focal point with its vibrant red fluted detailing and brass accents, complemented by the softness of floral printed mirrors that add depth and intrigue.</p><p>On the other side of the rotating divider, the design pays homage to cultural roots with a traditional Indian Baithak. This zone is dedicated to relaxed, low-seating comfort, framed by elegant wall moldings and warm, ambient lighting. The material palette throughout creates a cohesive sense of luxury, utilizing rich designer veneers, coffered ceilings, and curated decor to transform a small extension into a grand statement of style.</p></div>
+      </div>
+      <div class="proj-media">
+          <figure class="wide rv"><video src="assets/turn.mp4" poster="assets/turn_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="The custom TV unit rotating from the social zone to the Baithak"></video></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/s_wide.jpg" alt="Timber-grid partition with the rotating TV unit and red fluted bar" loading="lazy"></figure><figure class="tall rv"><img src="assets/s_bar.jpg" alt="Breakfast counter and juice bar with red fluted detailing and brass accents" loading="lazy"></figure></div>
+          <div class="duo"><figure class="tall rv"><img src="assets/s_door.jpg" alt="Entrance door with amber glass panels" loading="lazy"></figure><figure class="tall rv"><img src="assets/s_baithak.jpg" alt="The Baithak side, framed by wall mouldings and warm lighting" loading="lazy"></figure></div>
+      </div>
+    </article>
+
+    <article class="proj" id="a3804" aria-labelledby="a3804-h">
+      <div class="proj-text">
+        <span class="no">02 / Residence</span>
+        <h3 id="a3804-h">Studio A3804</h3>
+        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd><dt>Palette</dt><dd>Neutrals, wood, blue and blush</dd></dl>
+        <div class="note"><p>Studio A3804 is a thoughtfully curated residential interior that celebrates understated elegance through balance, comfort, and continuity. Designed as a seamless extension of the client's lifestyle, the project brings together refined aesthetics and everyday functionality, creating spaces that feel warm, personal, and timeless.</p><p>The home is envisioned with a soft modern sensibility, where muted colour palettes, tactile materials, and gentle contrasts define each space. From the dining area to the living and bedrooms, the design language remains cohesive, anchored by neutral backdrops, enriched with natural wood finishes, fluted details, and subtle accents in blues, blush tones, and earthy hues.</p><p>The dining space acts as a quiet focal point, combining clean-lined furniture with curated lighting and textured wall treatments to elevate daily rituals. Custom cabinetry and display units enhance storage while maintaining visual lightness. The living area is designed as a comfortable yet elegant retreat, layered with plush seating, soft furnishings, and controlled natural light to create a welcoming atmosphere for both family gatherings and intimate moments.</p><p>Private spaces are treated with a calmer, more intimate approach. The bedrooms are conceived as restful sanctuaries, defined by upholstered headboards, soft textiles, and carefully selected accent elements that add warmth without overpowering the space. Decorative lighting, minimal open shelving, and curated décor introduce character while preserving a sense of visual calm.</p><p>Throughout Studio A3804, attention is given to proportion, material harmony, and detailing, ensuring that every element contributes to a unified narrative. The result is a home that feels refined yet lived-in, where modern design meets comfort, and aesthetics quietly support the rhythm of everyday life.</p></div>
+      </div>
+      <div class="proj-media">
+          <figure class="wide rv"><img src="assets/b_tvwall.jpg" alt="Living room with a lit display wall, gold trims and calligraphy panels" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/b_kids2.jpg" alt="Arched green shelving framing a bedroom" loading="lazy"></figure><figure class="tall rv"><img src="assets/b_foyer2.jpg" alt="Foyer with a patterned mirror wall and pendant lights" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/b_kids3.jpg" alt="Child&#x27;s bedroom with an arched niche and lit shelving" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/b_door2.jpg" alt="Entrance door with timber and stone inlays beside a green wall" loading="lazy"></figure><figure class="tall rv"><img src="assets/b_foyer1.jpg" alt="Foyer with wall mouldings, brass sconce and stone panel" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/b_pink.jpg" alt="Bedroom with a coral chevron headboard" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="proj" id="p603" aria-labelledby="p603-h">
+      <div class="proj-text">
+        <span class="no">03 / Residence</span>
+        <h3 id="p603-h">Piramal 603</h3>
+        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+      </div>
+      <div class="proj-media">
+          <figure class="wide rv"><img src="assets/r1_living.jpg" alt="Living room with a curved leather sofa and navy panelling" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/r1_chand.jpg" alt="Green glass chandelier above the dining table" loading="lazy"></figure><figure class="tall rv"><img src="assets/r1_pink.jpg" alt="Bedroom with a blush headboard and terracotta accents" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/r1_dining.jpg" alt="Dining room with powder-blue chairs and walnut cabinetry" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/p_KAI08743.jpg" alt="Dining table with a lit portrait and display cabinet" loading="lazy"></figure><figure class="tall rv"><img src="assets/p_KAI08887.jpg" alt="Bedroom with botanical wallpaper and a sage headboard" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/r1_bed.jpg" alt="Bedroom with a sage headboard and blue quilt" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="proj" id="arav" aria-labelledby="arav-h">
+      <div class="proj-text">
+        <span class="no">04 / Residence</span>
+        <h3 id="arav-h">Piramal Arav 4706</h3>
+        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+      </div>
+      <div class="proj-media">
+          <figure class="wide rv"><img src="assets/ar_hero.jpg" alt="Living room with a cushioned TV panel and sheer curtains" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/ar_b.jpg" alt="Reading chair against a misty forest mural with a glowing edge" loading="lazy"></figure><figure class="tall rv"><img src="assets/ar_g.jpg" alt="Corridor with a botanical mural and arched wainscot" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/ar_a.jpg" alt="Bedroom with a fan-pleated headboard and brass sconces" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/ar_f.jpg" alt="TV unit with a quilted panel and timber backdrop" loading="lazy"></figure><figure class="tall rv"><img src="assets/ar_h.jpg" alt="Dining chairs in timber and cream" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/ar_d.jpg" alt="Bedroom in blush and lilac with floral wallpaper" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="proj" id="sterling" aria-labelledby="sterling-h">
+      <div class="proj-text">
+        <span class="no">05 / Residence</span>
+        <h3 id="sterling-h">Sterling 1003</h3>
+        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+      </div>
+      <div class="proj-media">
+          <figure class="wide rv"><img src="assets/st_hero.jpg" alt="Living room with arched display cabinetry and a cream sofa" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/st_b.jpg" alt="Bedroom with a terracotta sculpted panel" loading="lazy"></figure><figure class="tall rv"><img src="assets/st_e.jpg" alt="Sofa corner with a sculpted wall light" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/st_a.jpg" alt="Bedroom with a terracotta feature wall and sheer curtains" loading="lazy"></figure>
+          <div class="duo"><figure class="tall rv"><img src="assets/st_g.jpg" alt="Vanity in sage and textured laminate" loading="lazy"></figure><figure class="tall rv"><img src="assets/st_c.jpg" alt="TV wall with a stone-textured panel and floating console" loading="lazy"></figure></div>
+          <figure class="wide rv"><img src="assets/st_f.jpg" alt="Powder room with sage wall and timber-grain storage" loading="lazy"></figure>
+      </div>
+    </article>
+  </section>
+
+  <section class="film wrap" aria-label="Project films">
+    <div>
+      <h2>Walk through a finished home.</h2>
+      <p>Short films of completed rooms, shot on site. More on our Instagram.</p>
+      <a class="pill" href="https://www.instagram.com/studio.inandout/" target="_blank" rel="noopener"><i></i>Follow @studio.inandout</a>
+    </div>
+    <div class="reels">
+      <figure><div class="reel"><video src="assets/reel_arav.mp4" poster="assets/reel_arav_p.jpg" autoplay muted loop playsinline aria-label="Video walkthrough of the Piramal Arav 4706 living room"></video></div><figcaption>Piramal Arav 4706</figcaption></figure>
+      <figure class="lower"><div class="reel"><video src="assets/reel_sterling.mp4" poster="assets/reel_sterling_p.jpg" autoplay muted loop playsinline aria-label="Video walkthrough of the Sterling 1003 living room"></video></div><figcaption>Sterling 1003</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="founders" id="founders" aria-labelledby="f-h">
+    <div class="wrap">
+      <div class="sec-head" style="display:block">
+        <h2 class="sec-title" id="f-h">The minds behind Studio In <span class="amp">&amp;</span> Out</h2>
+        <p class="names">Abdeali Kanchwala &amp; Ar. Sakina Kanchwala</p>
+      </div>
+      <div class="f-grid">
+        <div class="f-copy">
+          <p>United by a shared passion for design, Abdeali and Sakina bring together two distinct perspectives, interior design and architecture, to create spaces that are both expressive and purposeful.</p>
+          <p>As the co-founders of Studio In &amp; Out, their approach goes beyond aesthetics, focusing on thoughtful spatial planning, refined detailing, and a deep understanding of how people experience spaces.</p>
+          <p>Abdeali brings a keen eye for materials, detailing, and design expression, while Sakina lends her architectural perspective, balancing creativity with spatial clarity and functionality.</p>
+          <p>Together, they believe that exceptional design is not defined by extravagance, but by intention, individuality, and the seamless harmony of form and function.</p>
+          <blockquote>Two perspectives. One vision. A distinctive approach to design.</blockquote>
+        </div>
+        <figure class="duo-photo rv"><img src="assets/founders.jpg" alt="Ar. Sakina Kanchwala and Abdeali Kanchwala seated together in one of their interiors" loading="lazy"><figcaption><span><b>Ar. Sakina Kanchwala</b>Principal Architect</span><span><b>Abdeali Kanchwala</b>Principal Designer</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-sec wrap" id="contact" aria-labelledby="c-h">
+    <div class="panel">
+      <div>
+        <h2 id="c-h">Tell us about your space.</h2>
+        <div class="contact-list">
+          <div><small>Ar. Sakina Kanchwala</small>+91 98338 77752</div>
+          <div><small>Abdeali Kanchwala</small>+91 75061 47251</div>
+          <div><small>Email</small>studioinandoutk@gmail.com</div>
+          <div><small>Studio</small>5th floor, Potiawala Industries, Boat Hard Road, Reay Road, Mumbai 400 010</div>
+        </div>
+      </div>
+      <form id="enquiry">
+        <label>Name<input id="c-name" name="name" required autocomplete="name"></label>
+        <label>Phone<input id="c-phone" name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="full">What are you planning?
+          <select id="c-type" name="type"><option>Home interiors</option><option>Architecture / new build</option><option>Workspace or commercial</option><option>3D visualisation</option></select>
+        </label>
+        <label class="full">Tell us a little about it<textarea id="c-msg" name="msg" placeholder="Location, size, timeline"></textarea></label>
+        <button class="pill" type="submit"><i></i>Prepare WhatsApp message</button>
+        <p class="note">We turn your answers into a WhatsApp message to the studio. You review it and press send.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="form-sec alt wrap" id="contractors" aria-labelledby="t-h">
+    <div class="panel">
+      <div>
+        <h2 id="t-h">Contractors, build with us.</h2>
+        <p class="lead">We are always looking for reliable contractors and craftspeople across Mumbai. If you do good work and finish on time, send us your details.</p>
+        <div class="trades"><span>Civil &amp; masonry</span><span>Carpentry &amp; joinery</span><span>Electrical</span><span>Plumbing</span><span>False ceiling &amp; POP</span><span>Painting &amp; polishing</span><span>Tiling &amp; stone</span><span>Fabrication</span><span>Glass &amp; aluminium</span><span>Upholstery &amp; furnishing</span></div>
+        <ol class="steps">
+          <li><div><b>Send your details</b>Your trade and a few photos of past work.</div></li>
+          <li><div><b>We call you</b>The studio reviews your work and calls to discuss.</div></li>
+          <li><div><b>Meet on site</b>We meet at a running site before the first project together.</div></li>
+        </ol>
+      </div>
+      <form id="join">
+        <label>Your name<input id="j-name" name="name" required autocomplete="name"></label>
+        <label>Firm name<input id="j-firm" name="firm" placeholder="Optional"></label>
+        <label>Phone / WhatsApp<input id="j-phone" name="phone" type="tel" required autocomplete="tel"></label>
+        <label>Your trade
+          <select id="j-trade" name="trade" required><option value="">Choose one</option><option>Civil &amp; masonry</option><option>Carpentry &amp; joinery</option><option>Electrical</option><option>Plumbing</option><option>False ceiling &amp; POP</option><option>Painting &amp; polishing</option><option>Tiling &amp; stone</option><option>Fabrication</option><option>Glass &amp; aluminium</option><option>Upholstery &amp; furnishing</option><option>Other</option></select>
+        </label>
+        <label>Years of experience<input id="j-years" name="years" type="number" min="0" inputmode="numeric"></label>
+        <label>Team size<input id="j-team" name="team" type="number" min="1" inputmode="numeric"></label>
+        <label class="full">Areas you work in<input id="j-areas" name="areas" placeholder="e.g. South Mumbai, Thane, Navi Mumbai"></label>
+        <label class="full">Link to your work<input id="j-link" name="link" placeholder="Instagram, Google Drive or website (optional)"></label>
+        <button class="pill" type="submit"><i></i>Prepare my details</button>
+        <p class="note">We turn your answers into a WhatsApp message to the studio. You can attach photos of your work in the same chat.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div><h4>Studio</h4>5th floor, Potiawala Industries,<br>Boat Hard Road, Reay Road,<br>Mumbai 400 010</div>
+      <div><h4>Talk to us</h4><span>+91 98338 77752</span><span>+91 75061 47251</span><span>studioinandoutk@gmail.com</span></div>
+      <div><h4>Explore</h4><a href="#work">Projects</a><a href="#founders">Founders</a><a href="#contractors">Contractors</a></div>
+      <div><h4>Follow</h4><a href="https://www.instagram.com/studio.inandout/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+    <div class="wordmark" aria-hidden="true">In <span class="amp">&amp;</span> Out</div>
+    <div class="f-bot"><span>© 2026 Studio In &amp; Out</span><span>Architecture | Interior | 3D Visualisation</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/917506147251" target="_blank" rel="noopener" aria-label="Message the studio on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2l-.4-.2z"/></svg>
+</a>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+
+/* ---------- opening: plays once, about 2 seconds ---------- */
+const hero=document.querySelector('.hero'), apImg=hero.querySelector('.ap-img'), apPic=apImg.querySelector('img'),
+      wl=hero.querySelector('.ap-word.l'), wr=hero.querySelector('.ap-word.r'), amp=hero.querySelector('.ap-amp');
+function frame(e){
+  const vw=document.documentElement.clientWidth, vh=hero.offsetHeight, mobile=vw<700;
+  const w0=mobile?vw*.62:Math.min(vw*.24,420), h0=mobile?vh*.40:Math.min(vh*.5,520);
+  const w=w0+(vw-w0)*e, h=h0+(vh-h0)*e, ix=(vw-w)/2, iy=(vh-h)/2;
+  apImg.style.clipPath=`inset(${iy}px ${ix}px ${iy}px ${ix}px)`;
+  apPic.style.transform=`translateX(${-(1-e)*(mobile?.16:.22)*vw}px) scale(${1.35-.35*e})`;
+  hero.style.setProperty('--gap',(w0/2+24)+'px');
+  const push=e*vw*(mobile?1:.35);
+  wl.style.transform=mobile?`translateX(${-push}px)`:`translate(${-push}px,-55%)`;
+  wr.style.transform=mobile?`translateX(${push}px)`:`translate(${push}px,-55%)`;
+  wl.style.opacity=wr.style.opacity=1-clamp(e*1.6);
+  amp.style.opacity=1-clamp(e*3);
+}
+function finish(){ frame(1); hero.classList.add('done'); }
+if(reduce){ finish(); }
+else{
+  frame(0);
+  const go=()=>{ const t0=performance.now()+500, D=2000;
+    (function tick(now){ const p=clamp((now-t0)/D); frame(ease(p)); if(p<1) requestAnimationFrame(tick); else finish(); })(performance.now()); };
+  if(apPic.complete) go(); else { apPic.addEventListener('load',go,{once:true}); setTimeout(()=>{ if(!hero.classList.contains('done')) go(); },2500); }
+}
+addEventListener('resize',()=>{ if(hero.classList.contains('done')) frame(1); });
+
+/* ---------- statement words darken as you scroll ---------- */
+const rt=document.querySelector('.reveal-text');
+rt.innerHTML=rt.textContent.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ');
+const words=[...rt.querySelectorAll('.w')];
+function statement(){
+  const r=rt.getBoundingClientRect(), vh=innerHeight;
+  const p=reduce?1:clamp((vh*.85-r.top)/(r.height+vh*.35));
+  const n=Math.round(p*words.length); words.forEach((w,i)=>w.classList.toggle('on',i<n));
+}
+let ticking=false;
+addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(()=>{statement();ticking=false}); ticking=true; } },{passive:true});
+statement();
+
+/* ---------- photos fade in as they arrive ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>reduce?el.classList.add('in'):io.observe(el));
+
+/* ---------- keep short project text beside its photos ---------- */
+function sticky(){ document.querySelectorAll('.proj-text').forEach(t=>t.classList.toggle('stick', innerWidth>860 && t.offsetHeight < innerHeight-140)); }
+sticky(); addEventListener('resize',sticky); addEventListener('load',sticky);
+
+/* ---------- underline the menu item for the section on screen ---------- */
+const links=[...document.querySelectorAll('.nav a')];
+const secIO=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle('cur',a.getAttribute('href')==='#'+e.target.id)); } }),{rootMargin:'-45% 0px -50% 0px'});
+['studio','work','founders','contact','contractors'].forEach(id=>secIO.observe(document.getElementById(id)));
+
+/* ---------- forms: build a WhatsApp message ---------- */
+function wa(t, form){
+  const url='https://wa.me/917506147251?text='+encodeURIComponent(t);
+  let box=form.querySelector('.sent');
+  if(!box){ box=document.createElement('div'); box.className='sent full'; form.appendChild(box); }
+  box.innerHTML='<p>Your message is ready. Tap below to open WhatsApp and press send.</p><a class="pill" target="_blank" rel="noopener"><i></i>Open WhatsApp</a>';
+  box.querySelector('a').href=url;
+  box.scrollIntoView({block:'nearest',behavior:reduce?'auto':'smooth'});
+}
+document.getElementById('enquiry').addEventListener('submit',e=>{ e.preventDefault(); const f=new FormData(e.target);
+  wa(`Hi Studio In & Out, I'm ${f.get('name')} (${f.get('phone')}).\nProject: ${f.get('type')}\n${f.get('msg')||''}`, e.target); });
+document.getElementById('join').addEventListener('submit',e=>{ e.preventDefault(); const f=new FormData(e.target);
+  wa(`Hi Studio In & Out, I'd like to work with you as a contractor.\nName: ${f.get('name')}${f.get('firm')?' ('+f.get('firm')+')':''}\nPhone: ${f.get('phone')}\nTrade: ${f.get('trade')}\nExperience: ${f.get('years')||'-'} years, team of ${f.get('team')||'-'}\nAreas: ${f.get('areas')||'-'}\nWork: ${f.get('link')||'-'}`, e.target); });
+</script>
+</body>
+</html>
