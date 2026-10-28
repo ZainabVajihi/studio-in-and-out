@@ -107,18 +107,27 @@ html:not(.js) .ap-word,html:not(.js) .ap-amp{display:none}
 .st-ring{position:absolute;right:-12px;top:46%;width:clamp(70px,8vw,120px);aspect-ratio:1;border-radius:50%;border:1.5px solid var(--marigold)}
 @media(max-width:860px){.st-grid{grid-template-columns:1fr}.st-media{height:min(110vw,560px)}.st-ring{right:0}}
 
-/* philosophy: three statements, all readable at once */
-.creed{background:var(--stone);padding-block:clamp(56px,7vw,110px)}
-.creed-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,52px)}
-.creed-head h2{font-size:clamp(30px,3.2vw,48px);line-height:1}
-.creed-head p{color:#5f5d58;max-width:36ch}
-.creed-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.creed-grid>div{padding:clamp(22px,2.6vw,36px) clamp(16px,2.4vw,36px) 0 0;display:grid;gap:18px;align-content:start}
-.creed-grid>div+div{border-left:1px solid rgba(0,0,0,.18);padding-left:clamp(16px,2.4vw,36px)}
-.creed-grid .mark{width:14px;height:14px;border-radius:50%;background:var(--marigold)}
-.creed-grid h3{font-size:clamp(34px,3.8vw,62px);line-height:1}
-.creed-grid h3 em{font-style:italic}
-@media(max-width:760px){.creed-grid{grid-template-columns:1fr}.creed-grid>div{padding:22px 0}.creed-grid>div+div{border-left:0;border-top:1px solid rgba(0,0,0,.18);padding-left:0}}
+/* philosophy: three ideas, each with a word and a detail photo */
+.creed{background:var(--stone);padding-block:clamp(64px,8vw,130px)}
+.creed-head{display:grid;grid-template-columns:7fr 5fr;gap:16px 40px;align-items:end;margin-bottom:clamp(36px,5vw,72px)}
+.creed-head h2{font-size:clamp(44px,6vw,96px);line-height:.95}
+.creed-head h2 em{font-style:italic}
+.creed-head p{color:#5f5d58;max-width:38ch;justify-self:end}
+.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,40px)}
+.idea{display:grid;gap:14px;align-content:start;min-width:0}
+.idea figure{aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;background:var(--plaster);position:relative}
+.idea figure img{width:100%;height:100%;object-fit:cover}
+.idea:nth-child(2){margin-top:clamp(0px,6vw,90px)}
+.idea .lead-in{font-size:14px;font-weight:600;color:#5f5d58;margin-top:8px}
+.idea .word{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(52px,5.4vw,96px);line-height:.95;letter-spacing:-.02em;color:var(--ink)}
+.idea .word span{background:linear-gradient(transparent 70%,rgba(249,206,14,.9) 70%,rgba(249,206,14,.9) 84%,transparent 84%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .04em}
+.idea p{color:#3e3e3e;font-size:16px;max-width:34ch}
+@media(max-width:860px){
+  .creed-head{grid-template-columns:1fr}.creed-head p{justify-self:start}
+  .ideas{grid-template-columns:1fr;gap:48px}
+  .idea:nth-child(2){margin-top:0}
+  .idea figure{aspect-ratio:4/3;border-radius:200px 200px 0 0}
+}
 
 /* what we do: same cards on every device */
 .disc{padding-block:clamp(80px,10vw,140px) clamp(40px,6vw,80px)}
@@ -281,13 +290,28 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
   <section class="creed" aria-labelledby="creed-h">
     <div class="wrap">
       <div class="creed-head">
-        <h2 id="creed-h">Our philosophy is simple</h2>
-        <p>Three ideas guide every project, from the first sketch to the last cushion.</p>
+        <h2 id="creed-h">Our philosophy is <em>simple.</em></h2>
+        <p>Three ideas guide every project we take on, from the first sketch to the last cushion.</p>
       </div>
-      <div class="creed-grid">
-        <div class="rv"><span class="mark"></span><h3>Design with <em>purpose.</em></h3></div>
-        <div class="rv"><span class="mark"></span><h3>Create with <em>character.</em></h3></div>
-        <div class="rv"><span class="mark"></span><h3>Inspire through <em>every detail.</em></h3></div>
+      <div class="ideas">
+        <article class="idea rv">
+          <figure><img src="assets/st_c.jpg" alt="A calm TV wall with a stone-textured panel and floating console" loading="lazy"></figure>
+          <span class="lead-in">Design with</span>
+          <h3 class="word"><span>purpose.</span></h3>
+          <p>Every space starts with how you will live in it, so each line on the drawing has a reason to be there.</p>
+        </article>
+        <article class="idea rv">
+          <figure><img src="assets/s_bar.jpg" alt="A breakfast bar with red fluted detailing and brass accents" loading="lazy"></figure>
+          <span class="lead-in">Create with</span>
+          <h3 class="word"><span>character.</span></h3>
+          <p>Materials, colour and craft chosen to make a home feel unmistakably yours.</p>
+        </article>
+        <article class="idea rv">
+          <figure><img src="assets/r1_chand.jpg" alt="A green glass chandelier above a dining table" loading="lazy"></figure>
+          <span class="lead-in">Inspire through</span>
+          <h3 class="word"><span>every detail.</span></h3>
+          <p>From the joinery to the light fittings, the small things are what you notice every day.</p>
+        </article>
       </div>
     </div>
   </section>
