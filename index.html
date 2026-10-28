@@ -165,17 +165,25 @@ html:not(.js) .ap-word,html:not(.js) .ap-amp{display:none}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
 
-/* film */
-.film{padding-block:clamp(80px,10vw,150px);display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:center}
-.film>*{min-width:0}
-.film h2{font-size:clamp(44px,5.4vw,88px);line-height:.95;max-width:9ch}
-.film p{margin-top:18px;color:#4a4a4a}
-.reels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px);justify-self:end;width:min(620px,100%)}
-.reel{aspect-ratio:9/16;border-radius:200px 200px 0 0;overflow:hidden;background:var(--stone)}
-.reel video{width:100%;height:100%;object-fit:cover}
-.reels .lower{margin-top:clamp(40px,6vw,90px)}
-.reels figcaption{font-size:14px;font-weight:500;margin-top:10px}
-@media(max-width:800px){.film{grid-template-columns:1fr}.reels{justify-self:stretch}}
+/* walkthrough films */
+.film{background:var(--stone);padding-block:clamp(72px,9vw,140px)}
+.film .sec-head{align-items:end}
+.film .sec-head .pill{margin-top:0}
+.films{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,72px);margin-top:clamp(8px,2vw,24px)}
+.walk{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,2.4vw,36px);align-items:end;min-width:0}
+.walk .reel{width:clamp(220px,24vw,400px);aspect-ratio:9/16;border-radius:999px 999px 0 0;overflow:hidden;background:var(--plaster);position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.walk .reel video{width:100%;height:100%;object-fit:cover}
+.walk .badge{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.walk .badge i{width:7px;height:7px;border-radius:50%;background:#e0412f;animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.walk .badge i{animation:none}}
+.walk .meta{display:grid;gap:10px;min-width:0;padding-bottom:8px}
+.walk .meta small{font-size:13px;font-weight:600;color:var(--concrete)}
+.walk .meta h3{font-size:clamp(34px,3.4vw,58px);line-height:.95}
+.walk .meta p{color:#4a4a4a;font-size:16px}
+.walk .meta a{font-weight:600;font-size:15px;border-bottom:1.5px solid var(--ink);justify-self:start;padding-bottom:2px}
+@media(max-width:1000px){.films{grid-template-columns:1fr;gap:56px}}
+@media(max-width:560px){.walk{grid-template-columns:1fr}.walk .reel{width:100%;max-width:420px}}
 .pill{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);padding:14px 24px;border-radius:999px;font:inherit;font-weight:500;font-size:15px;border:0;cursor:pointer;margin-top:24px;transition:background .3s,color .3s}
 .pill:hover{background:var(--marigold);color:var(--ink)}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--marigold)}
@@ -426,15 +434,35 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
     </article>
   </section>
 
-  <section class="film wrap" aria-label="Project films">
-    <div>
-      <h2>Walk through a finished home.</h2>
-      <p>Short films of completed rooms, shot on site. More on our Instagram.</p>
-      <a class="pill" href="https://www.instagram.com/studio.inandout/" target="_blank" rel="noopener"><i></i>Follow @studio.inandout</a>
-    </div>
-    <div class="reels">
-      <figure><div class="reel"><video src="assets/reel_arav.mp4" poster="assets/reel_arav_p.jpg" autoplay muted loop playsinline aria-label="Video walkthrough of the Piramal Arav 4706 living room"></video></div><figcaption>Piramal Arav 4706</figcaption></figure>
-      <figure class="lower"><div class="reel"><video src="assets/reel_sterling.mp4" poster="assets/reel_sterling_p.jpg" autoplay muted loop playsinline aria-label="Video walkthrough of the Sterling 1003 living room"></video></div><figcaption>Sterling 1003</figcaption></figure>
+  <section class="film" aria-labelledby="film-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="sec-title" id="film-h">Walkthroughs</h2>
+          <p style="margin-top:14px">Step inside two finished homes. Short films shot on site.</p>
+        </div>
+        <a class="pill" href="https://www.instagram.com/studio.inandout/" target="_blank" rel="noopener"><i></i>More films on Instagram</a>
+      </div>
+      <div class="films">
+        <article class="walk rv">
+          <div class="reel"><video src="assets/reel_arav.mp4" poster="assets/reel_arav_p.jpg" autoplay muted loop playsinline aria-label="Walkthrough of the Piramal Arav 4706 living room"></video><span class="badge"><i></i>Living room</span></div>
+          <div class="meta">
+            <small>Film / Residence</small>
+            <h3>Piramal Arav 4706</h3>
+            <p>Soft neutrals, a cushioned TV wall and light through sheer curtains.</p>
+            <a href="#arav">See the project</a>
+          </div>
+        </article>
+        <article class="walk rv">
+          <div class="reel"><video src="assets/reel_sterling.mp4" poster="assets/reel_sterling_p.jpg" autoplay muted loop playsinline aria-label="Walkthrough of the Sterling 1003 entrance and living room"></video><span class="badge"><i></i>Entrance and living</span></div>
+          <div class="meta">
+            <small>Film / Residence</small>
+            <h3>Sterling 1003</h3>
+            <p>Arched cabinetry, walnut joinery and a patterned entrance passage.</p>
+            <a href="#sterling">See the project</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -460,7 +488,8 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
   <section class="form-sec wrap" id="contact" aria-labelledby="c-h">
     <div class="panel">
       <div>
-        <h2 id="c-h">Tell us about your space.</h2>
+        <h2 id="c-h">Start a project</h2>
+        <p class="lead">Tell us about your space and we will get back to you.</p>
         <div class="contact-list">
           <div><small>Ar. Sakina Kanchwala</small>+91 98338 77752</div>
           <div><small>Abdeali Kanchwala</small>+91 75061 47251</div>
@@ -484,7 +513,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
   <section class="form-sec alt wrap" id="contractors" aria-labelledby="t-h">
     <div class="panel">
       <div>
-        <h2 id="t-h">Contractors, build with us.</h2>
+        <h2 id="t-h">Join our team</h2>
         <p class="lead">We are always looking for reliable contractors and craftspeople across Mumbai. If you do good work and finish on time, send us your details.</p>
         <div class="trades"><span>Civil &amp; masonry</span><span>Carpentry &amp; joinery</span><span>Electrical</span><span>Plumbing</span><span>False ceiling &amp; POP</span><span>Painting &amp; polishing</span><span>Tiling &amp; stone</span><span>Fabrication</span><span>Glass &amp; aluminium</span><span>Upholstery &amp; furnishing</span></div>
         <ol class="steps">
@@ -516,7 +545,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
     <div class="f-top">
       <div><h4>Studio</h4>5th floor, Potiawala Industries,<br>Boat Hard Road, Reay Road,<br>Mumbai 400 010</div>
       <div><h4>Talk to us</h4><span>+91 98338 77752</span><span>+91 75061 47251</span><span>studioinandoutk@gmail.com</span></div>
-      <div><h4>Explore</h4><a href="#work">Projects</a><a href="#founders">Founders</a><a href="#contractors">Contractors</a></div>
+      <div><h4>Explore</h4><a href="#work">Projects</a><a href="#founders">Founders</a><a href="#contractors">Join our team</a></div>
       <div><h4>Follow</h4><a href="https://www.instagram.com/studio.inandout/" target="_blank" rel="noopener">Instagram</a></div>
     </div>
     <div class="wordmark" aria-hidden="true">In <span class="amp">&amp;</span> Out</div>
