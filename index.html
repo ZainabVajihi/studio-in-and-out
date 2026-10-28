@@ -68,27 +68,43 @@ main,footer{position:relative;z-index:1}
   .nav{width:100%;justify-content:space-between;gap:10px;font-size:13px}
 }
 
-/* hero: plays once on load (about 2s) */
-.hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden}
-.ap-img{position:absolute;inset:0}
-.ap-img img{width:100%;height:100%;object-fit:cover;object-position:68% 55%;transform-origin:center;will-change:transform}
-.ap-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55));z-index:2;pointer-events:none}
-.ap-word{position:absolute;top:50%;font-family:var(--serif);font-size:clamp(84px,17vw,300px);line-height:.8;letter-spacing:-.02em;color:var(--ink);will-change:transform,opacity}
-.ap-word.l{right:calc(50% + var(--gap,200px))}
-.ap-word.r{left:calc(50% + var(--gap,200px))}
-.ap-amp{position:absolute;left:50%;top:50%;font-size:clamp(90px,13vw,220px);line-height:1;transform:translate(-50%,-56%);z-index:3;pointer-events:none}
-.ap-cap{position:absolute;left:max(var(--pad), env(safe-area-inset-left,0px));right:var(--pad);bottom:clamp(32px,6vh,72px);color:#fff;z-index:4}
-.ap-cap h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,7.4vw,124px);line-height:.95;letter-spacing:-.01em;max-width:11ch}
-.ap-cap p{margin-top:16px;font-size:15px;font-weight:500;opacity:.92}
-.ap-cue{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:14px;font-weight:500;color:#fff}
-.ap-cue i{width:1px;height:28px;background:#fff;transform-origin:top;animation:drip 1.8s var(--ease) infinite}
-@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-/* the starting state, only when scripts run */
-.js .hero:not(.done) .ap-cap,.js .hero:not(.done) .ap-shade{opacity:0}
-.hero .ap-cap,.hero .ap-shade{transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.js .hero:not(.done) .ap-cap{transform:translateY(24px)}
-html:not(.js) .ap-word,html:not(.js) .ap-amp{display:none}
-@media(max-width:700px){.ap-word{font-size:clamp(64px,22vw,140px);top:auto}.ap-word.l{right:auto;left:var(--pad);bottom:calc(50% + 24vh)}.ap-word.r{left:auto;right:var(--pad);top:calc(50% + 24vh)}}
+/* hero: two halves of the name, In (an interior) and Out (the view outside) */
+.hero{padding-top:calc(var(--head) + env(safe-area-inset-top,0px) + clamp(28px,4vw,56px))}
+.intro{display:grid;grid-template-columns:7fr 5fr;gap:16px 40px;align-items:end;padding-bottom:clamp(24px,3vw,40px)}
+.intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6.4vw,108px);line-height:.95;letter-spacing:-.015em;text-wrap:balance}
+.intro h1 em{font-style:italic}
+.intro p{color:#4a4a4a;max-width:40ch;justify-self:end}
+.intro p b{display:block;font-size:13px;font-weight:600;color:var(--concrete);margin-bottom:6px}
+.halves{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1vw,14px);height:clamp(320px,54svh,640px)}
+.half{position:relative;overflow:hidden;background:var(--stone)}
+.half img{width:100%;height:100%;object-fit:cover}
+.half::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.5))}
+.half .lbl{position:absolute;left:clamp(16px,2.4vw,36px);bottom:clamp(14px,2vw,28px);z-index:2;color:#fff;display:grid;gap:6px}
+.half.out .lbl{left:auto;right:clamp(16px,2.4vw,36px);text-align:right}
+.half .lbl span{font-family:var(--serif);font-size:clamp(64px,10vw,180px);line-height:.8;letter-spacing:-.02em}
+.half .lbl small{font-size:14px;font-weight:600;opacity:.92}
+.knot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:clamp(84px,10vw,150px);aspect-ratio:1;border-radius:50%;background:var(--plaster);display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.18)}
+.knot span{font-size:clamp(56px,6.6vw,100px);line-height:1;transform:translateY(-6%)}
+/* one load moment: the halves part from the seam, then the ampersand lands */
+@media(prefers-reduced-motion:no-preference){
+  .js .half{animation:part 1.3s var(--ease) .15s both}
+  .js .half.in{--from:inset(0 0 0 100%)}
+  .js .half.out{--from:inset(0 100% 0 0)}
+  .js .half img{animation:settle 1.8s var(--ease) .15s both}
+  .js .half .lbl{animation:rise .9s var(--ease) .9s both}
+  .js .knot{animation:pop .7s var(--ease) 1.1s both}
+  .js .intro>*{animation:rise .9s var(--ease) both}
+  .js .intro p{animation-delay:.12s}
+}
+@keyframes part{from{clip-path:var(--from)}to{clip-path:inset(0)}}
+@keyframes settle{from{transform:scale(1.12)}to{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translate(-50%,-50%) scale(.6)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@media(max-width:760px){
+  .intro{grid-template-columns:1fr}.intro p{justify-self:start}
+  .halves{height:clamp(300px,50svh,480px)}
+  .half .lbl small{font-size:12px}
+}
 
 /* statement */
 .statement{padding-block:clamp(100px,13vw,200px) clamp(80px,10vw,140px)}
@@ -267,16 +283,15 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 
 <main id="top">
 
-  <section class="hero" aria-label="Studio In and Out">
-    <div class="ap-img"><img src="assets/hero2.jpg" alt="Bedroom with a misty forest mural and a wide window over the Mumbai skyline"></div>
-    <div class="ap-shade"></div>
-    <span class="ap-word l" aria-hidden="true">In</span>
-    <span class="ap-amp amp" aria-hidden="true">&amp;</span>
-    <span class="ap-word r" aria-hidden="true">Out</span>
-    <div class="ap-cap">
-      <h1>A perspective beyond aesthetics.</h1>
-      <p>Architecture | Interior | 3D Visualisation, Mumbai</p>
-      <a class="ap-cue" href="#studio"><i></i>Scroll down</a>
+  <section class="hero wrap" aria-labelledby="hero-h">
+    <div class="intro">
+      <h1 id="hero-h">A perspective <em>beyond</em> aesthetics.</h1>
+      <p><b>Architecture | Interior | 3D Visualisation, Mumbai</b>We design the rooms you live in and the buildings that hold them, as one.</p>
+    </div>
+    <div class="halves">
+      <figure class="half in"><img src="assets/ar_b.jpg" alt="A reading chair against a misty forest mural, inside a Piramal Arav home"><figcaption class="lbl"><small>Interiors</small><span>In</span></figcaption></figure>
+      <figure class="half out"><img src="assets/balc_big.jpg" alt="A balcony looking out over the Mumbai skyline"><figcaption class="lbl"><small>Architecture</small><span>Out</span></figcaption></figure>
+      <div class="knot" aria-hidden="true"><span class="amp">&amp;</span></div>
     </div>
   </section>
 
@@ -332,7 +347,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
     </div>
     <div class="cards">
       <article class="card rv">
-        <figure><img src="assets/ar_b.jpg" alt="Reading chair against a misty forest mural" loading="lazy"><span class="tag amp">In</span></figure>
+        <figure><img src="assets/ar_a.jpg" alt="Bedroom with a fan-pleated headboard and brass sconces" loading="lazy"><span class="tag amp">In</span></figure>
         <h3>Interior design</h3>
         <p>Homes and workplaces: planning, joinery, materials, lighting and styling.</p>
       </article>
@@ -342,7 +357,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
         <p>Every room seen in 3D before anything is built, so decisions are made with confidence.</p>
       </article>
       <article class="card rv">
-        <figure><img src="assets/balc_big.jpg" alt="Balcony looking out over the Mumbai skyline" loading="lazy"><span class="tag amp">Out</span></figure>
+        <figure><img src="assets/hero2.jpg" alt="Bedroom window looking out over the Mumbai skyline" loading="lazy"><span class="tag amp">Out</span></figure>
         <h3>Architecture</h3>
         <p>New buildings, renovations and façades, planned around site and purpose.</p>
       </article>
@@ -561,32 +576,6 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-
-/* ---------- opening: plays once, about 2 seconds ---------- */
-const hero=document.querySelector('.hero'), apImg=hero.querySelector('.ap-img'), apPic=apImg.querySelector('img'),
-      wl=hero.querySelector('.ap-word.l'), wr=hero.querySelector('.ap-word.r'), amp=hero.querySelector('.ap-amp');
-function frame(e){
-  const vw=document.documentElement.clientWidth, vh=hero.offsetHeight, mobile=vw<700;
-  const w0=mobile?vw*.62:Math.min(vw*.24,420), h0=mobile?vh*.40:Math.min(vh*.5,520);
-  const w=w0+(vw-w0)*e, h=h0+(vh-h0)*e, ix=(vw-w)/2, iy=(vh-h)/2;
-  apImg.style.clipPath=`inset(${iy}px ${ix}px ${iy}px ${ix}px)`;
-  apPic.style.transform=`translateX(${-(1-e)*(mobile?.16:.22)*vw}px) scale(${1.35-.35*e})`;
-  hero.style.setProperty('--gap',(w0/2+24)+'px');
-  const push=e*vw*(mobile?1:.35);
-  wl.style.transform=mobile?`translateX(${-push}px)`:`translate(${-push}px,-55%)`;
-  wr.style.transform=mobile?`translateX(${push}px)`:`translate(${push}px,-55%)`;
-  wl.style.opacity=wr.style.opacity=1-clamp(e*1.6);
-  amp.style.opacity=1-clamp(e*3);
-}
-function finish(){ frame(1); hero.classList.add('done'); }
-if(reduce){ finish(); }
-else{
-  frame(0);
-  const go=()=>{ const t0=performance.now()+500, D=2000;
-    (function tick(now){ const p=clamp((now-t0)/D); frame(ease(p)); if(p<1) requestAnimationFrame(tick); else finish(); })(performance.now()); };
-  if(apPic.complete) go(); else { apPic.addEventListener('load',go,{once:true}); setTimeout(()=>{ if(!hero.classList.contains('done')) go(); },2500); }
-}
-addEventListener('resize',()=>{ if(hero.classList.contains('done')) frame(1); });
 
 /* ---------- statement words darken as you scroll ---------- */
 const rt=document.querySelector('.reveal-text');
