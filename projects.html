@@ -113,7 +113,6 @@ main,footer{position:relative;z-index:1}
   .half .lbl small{letter-spacing:.12em;font-size:11px}
 }
 
-.p-projects .work{padding-top:clamp(16px,2vw,32px)}
 /* page intro on the projects page */
 .page-head{padding-top:calc(var(--head) + env(safe-area-inset-top,0px) + clamp(40px,6vw,96px));padding-bottom:clamp(8px,2vw,24px)}
 .page-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,96px);line-height:1;letter-spacing:-.04em}
@@ -171,22 +170,32 @@ main,footer{position:relative;z-index:1}
 
 /* projects: text left, photos right */
 .work{padding-block:clamp(60px,8vw,120px) 0}
-.proj{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,96px);align-items:start;padding-block:clamp(48px,6vw,96px);border-top:1px solid var(--ink)}
+.proj{display:grid;grid-template-columns:5fr 7fr;gap:clamp(20px,2.4vw,36px) clamp(28px,5vw,96px);align-items:stretch;padding-block:clamp(48px,6vw,96px);border-top:1px solid var(--ink)}
 .proj>*{min-width:0}
-.proj-text.stick{position:sticky;top:calc(var(--head) + 28px)}
+.proj-text{display:grid;grid-template-rows:auto 1fr;gap:20px}
 .proj-text .no{font-size:14px;color:var(--concrete);font-weight:500}
 .proj-text h3{font-size:clamp(38px,4.4vw,72px);line-height:1;margin:10px 0 22px}
 .facts{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:15px;padding:16px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--stone);margin-bottom:24px}
 .facts dt{color:var(--concrete)}
-.note p{color:#3e3e3e;font-size:16.5px}
+.note p{color:#3e3e3e;font-size:16px}
 .note p+p{margin-top:14px}
-.proj-media{display:grid;gap:clamp(12px,1.4vw,20px)}
-.proj-media figure{overflow:hidden;background:var(--stone)}
-.proj-media .wide{aspect-ratio:3/2}
-.proj-media .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,20px)}
-.proj-media .tall{aspect-ratio:4/5}
-.proj-media img,.proj-media video{width:100%;height:100%;object-fit:cover}
-@media(max-width:860px){.proj{grid-template-columns:1fr}}
+.proj figure{overflow:hidden;background:var(--stone)}
+.proj img,.proj video{width:100%;height:100%;object-fit:cover;display:block}
+.proj .fill,.proj .lead{position:relative}
+.proj .fill img,.proj .lead img,.proj .lead video{position:absolute;inset:0}
+.proj .fill{min-height:220px}
+.proj .lead{min-height:clamp(420px,46vw,640px)}
+.gallery{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(240px,28vw,440px);gap:clamp(12px,1.4vw,20px)}
+.gallery .span2{grid-column:span 2}
+@media(max-width:860px){
+  .proj{grid-template-columns:1fr}
+  .proj-text{display:block}.proj .fill{display:none}
+  .proj .lead{min-height:0;aspect-ratio:4/3}
+  .proj .lead img,.proj .lead video{position:static}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(180px,58vw,300px)}
+  .gallery .span2{grid-column:auto}
+  .gallery figure:last-child:nth-child(odd){grid-column:1/-1}
+}
 
 /* gentle reveal on scroll (only with scripts) */
 .js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -302,80 +311,72 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 
     <article class="proj" id="a3805" aria-labelledby="a3805-h">
       <div class="proj-text">
-        <span class="no">01 / Studio extension</span>
-        <h3 id="a3805-h">Studio A3805</h3>
-        <dl class="facts"><dt>Area</dt><dd>350 sq. ft.</dd><dt>Scope</dt><dd>Interior design</dd><dt>Key idea</dt><dd>A rotating TV unit that works as a partition</dd></dl>
-        <div class="note"><p>Studio A3805 represents the art of maximization within a compact footprint. Designed as a 350 sq. ft. extension across the passage from the client's existing 3BHK, this project was conceived with a singular vision: to establish a distinct, formal living sanctuary that balances modern entertainment with traditional hospitality.</p><p>The layout is centered around a dynamic architectural intervention: a custom-designed, rotating TV unit. This pivotal element functions as a flexible partition, effectively zoning the studio into two distinct moods while maintaining an open, airy feel.</p><p>On one side lies the contemporary social zone, featuring a plush sofa setup and a bespoke breakfast counter/juice bar. The bar becomes a visual focal point with its vibrant red fluted detailing and brass accents, complemented by the softness of floral printed mirrors that add depth and intrigue.</p><p>On the other side of the rotating divider, the design pays homage to cultural roots with a traditional Indian Baithak. This zone is dedicated to relaxed, low-seating comfort, framed by elegant wall moldings and warm, ambient lighting. The material palette throughout creates a cohesive sense of luxury, utilizing rich designer veneers, coffered ceilings, and curated decor to transform a small extension into a grand statement of style.</p></div>
+        <div>
+          <span class="no">01 / Studio extension</span>
+          <h3 id="a3805-h">Studio A3805</h3>
+          <dl class="facts"><dt>Area</dt><dd>350 sq. ft.</dd><dt>Scope</dt><dd>Interior design</dd><dt>Key idea</dt><dd>A rotating TV unit that works as a partition</dd></dl>
+          <div class="note"><p>Studio A3805 represents the art of maximization within a compact footprint. Designed as a 350 sq. ft. extension across the passage from the client's existing 3BHK, this project was conceived with a singular vision: to establish a distinct, formal living sanctuary that balances modern entertainment with traditional hospitality.</p><p>The layout is centered around a dynamic architectural intervention: a custom-designed, rotating TV unit. This pivotal element functions as a flexible partition, effectively zoning the studio into two distinct moods while maintaining an open, airy feel.</p><p>On one side lies the contemporary social zone, featuring a plush sofa setup and a bespoke breakfast counter/juice bar. The bar becomes a visual focal point with its vibrant red fluted detailing and brass accents, complemented by the softness of floral printed mirrors that add depth and intrigue.</p><p>On the other side of the rotating divider, the design pays homage to cultural roots with a traditional Indian Baithak. This zone is dedicated to relaxed, low-seating comfort, framed by elegant wall moldings and warm, ambient lighting. The material palette throughout creates a cohesive sense of luxury, utilizing rich designer veneers, coffered ceilings, and curated decor to transform a small extension into a grand statement of style.</p></div>
+        </div>
+        
       </div>
-      <div class="proj-media">
-          <figure class="wide rv"><video src="assets/turn.mp4" poster="assets/turn_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="The custom TV unit rotating from the social zone to the Baithak"></video></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/s_wide.jpg" alt="Timber-grid partition with the rotating TV unit and red fluted bar" loading="lazy"></figure><figure class="tall rv"><img src="assets/s_bar.jpg" alt="Breakfast counter and juice bar with red fluted detailing and brass accents" loading="lazy"></figure></div>
-          <div class="duo"><figure class="tall rv"><img src="assets/s_door.jpg" alt="Entrance door with amber glass panels" loading="lazy"></figure><figure class="tall rv"><img src="assets/s_baithak.jpg" alt="The Baithak side, framed by wall mouldings and warm lighting" loading="lazy"></figure></div>
-      </div>
+      <figure class="lead rv"><video src="assets/turn.mp4" poster="assets/turn_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="The custom TV unit rotating from the social zone to the Baithak"></video></figure>
+      <div class="gallery"><figure class="span2 rv"><img src="assets/s_wide.jpg" alt="Timber-grid partition with the rotating TV unit and red fluted bar" loading="lazy"></figure><figure class=" rv"><img src="assets/s_bar.jpg" alt="Breakfast counter and juice bar with red fluted detailing and brass accents" loading="lazy"></figure><figure class="span2 rv"><img src="assets/s_door.jpg" alt="Entrance door with amber glass panels" loading="lazy"></figure><figure class=" rv"><img src="assets/s_baithak.jpg" alt="The Baithak side, framed by wall mouldings and warm lighting" loading="lazy"></figure></div>
     </article>
 
     <article class="proj" id="a3804" aria-labelledby="a3804-h">
       <div class="proj-text">
-        <span class="no">02 / Residence</span>
-        <h3 id="a3804-h">Studio A3804</h3>
-        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd><dt>Palette</dt><dd>Neutrals, wood, blue and blush</dd></dl>
-        <div class="note"><p>Studio A3804 is a thoughtfully curated residential interior that celebrates understated elegance through balance, comfort, and continuity. Designed as a seamless extension of the client's lifestyle, the project brings together refined aesthetics and everyday functionality, creating spaces that feel warm, personal, and timeless.</p><p>The home is envisioned with a soft modern sensibility, where muted colour palettes, tactile materials, and gentle contrasts define each space. From the dining area to the living and bedrooms, the design language remains cohesive, anchored by neutral backdrops, enriched with natural wood finishes, fluted details, and subtle accents in blues, blush tones, and earthy hues.</p><p>The dining space acts as a quiet focal point, combining clean-lined furniture with curated lighting and textured wall treatments to elevate daily rituals. Custom cabinetry and display units enhance storage while maintaining visual lightness. The living area is designed as a comfortable yet elegant retreat, layered with plush seating, soft furnishings, and controlled natural light to create a welcoming atmosphere for both family gatherings and intimate moments.</p><p>Private spaces are treated with a calmer, more intimate approach. The bedrooms are conceived as restful sanctuaries, defined by upholstered headboards, soft textiles, and carefully selected accent elements that add warmth without overpowering the space. Decorative lighting, minimal open shelving, and curated décor introduce character while preserving a sense of visual calm.</p><p>Throughout Studio A3804, attention is given to proportion, material harmony, and detailing, ensuring that every element contributes to a unified narrative. The result is a home that feels refined yet lived-in, where modern design meets comfort, and aesthetics quietly support the rhythm of everyday life.</p></div>
+        <div>
+          <span class="no">02 / Residence</span>
+          <h3 id="a3804-h">Studio A3804</h3>
+          <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd><dt>Palette</dt><dd>Neutrals, wood, blue and blush</dd></dl>
+          <div class="note"><p>Studio A3804 is a thoughtfully curated residential interior that celebrates understated elegance through balance, comfort, and continuity. Designed as a seamless extension of the client's lifestyle, the project brings together refined aesthetics and everyday functionality, creating spaces that feel warm, personal, and timeless.</p><p>The home is envisioned with a soft modern sensibility, where muted colour palettes, tactile materials, and gentle contrasts define each space. From the dining area to the living and bedrooms, the design language remains cohesive, anchored by neutral backdrops, enriched with natural wood finishes, fluted details, and subtle accents in blues, blush tones, and earthy hues.</p><p>The dining space acts as a quiet focal point, combining clean-lined furniture with curated lighting and textured wall treatments to elevate daily rituals. Custom cabinetry and display units enhance storage while maintaining visual lightness. The living area is designed as a comfortable yet elegant retreat, layered with plush seating, soft furnishings, and controlled natural light to create a welcoming atmosphere for both family gatherings and intimate moments.</p><p>Private spaces are treated with a calmer, more intimate approach. The bedrooms are conceived as restful sanctuaries, defined by upholstered headboards, soft textiles, and carefully selected accent elements that add warmth without overpowering the space. Decorative lighting, minimal open shelving, and curated décor introduce character while preserving a sense of visual calm.</p><p>Throughout Studio A3804, attention is given to proportion, material harmony, and detailing, ensuring that every element contributes to a unified narrative. The result is a home that feels refined yet lived-in, where modern design meets comfort, and aesthetics quietly support the rhythm of everyday life.</p></div>
+        </div>
+        
       </div>
-      <div class="proj-media">
-          <figure class="wide rv"><img src="assets/b_tvwall.jpg" alt="Living room with a lit display wall, gold trims and calligraphy panels" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/b_kids2.jpg" alt="Arched green shelving framing a bedroom" loading="lazy"></figure><figure class="tall rv"><img src="assets/b_foyer2.jpg" alt="Foyer with a patterned mirror wall and pendant lights" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/b_kids3.jpg" alt="Child&#x27;s bedroom with an arched niche and lit shelving" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/b_door2.jpg" alt="Entrance door with timber and stone inlays beside a green wall" loading="lazy"></figure><figure class="tall rv"><img src="assets/b_foyer1.jpg" alt="Foyer with wall mouldings, brass sconce and stone panel" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/b_pink.jpg" alt="Bedroom with a coral chevron headboard" loading="lazy"></figure>
-      </div>
+      <figure class="lead rv"><img src="assets/b_tvwall.jpg" alt="Living room with a lit display wall, gold trims and calligraphy panels" loading="lazy"></figure>
+      <div class="gallery"><figure class=" rv"><img src="assets/b_kids2.jpg" alt="Arched green shelving framing a bedroom" loading="lazy"></figure><figure class=" rv"><img src="assets/b_foyer2.jpg" alt="Foyer with a patterned mirror wall and pendant lights" loading="lazy"></figure><figure class=" rv"><img src="assets/b_kids3.jpg" alt="Child&#x27;s bedroom with an arched niche and lit shelving" loading="lazy"></figure><figure class=" rv"><img src="assets/b_door2.jpg" alt="Entrance door with timber and stone inlays beside a green wall" loading="lazy"></figure><figure class=" rv"><img src="assets/b_foyer1.jpg" alt="Foyer with wall mouldings, brass sconce and stone panel" loading="lazy"></figure><figure class=" rv"><img src="assets/b_pink.jpg" alt="Bedroom with a coral chevron headboard" loading="lazy"></figure></div>
     </article>
 
     <article class="proj" id="p603" aria-labelledby="p603-h">
       <div class="proj-text">
-        <span class="no">03 / Residence</span>
-        <h3 id="p603-h">Piramal 603</h3>
-        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
-        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        <div>
+          <span class="no">03 / Residence</span>
+          <h3 id="p603-h">Piramal 603</h3>
+          <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+          <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        </div>
+        <figure class="fill rv"><img src="assets/r1_chand.jpg" alt="Green glass chandelier above the dining table" loading="lazy"></figure>
       </div>
-      <div class="proj-media">
-          <figure class="wide rv"><img src="assets/r1_living.jpg" alt="Living room with a curved leather sofa and navy panelling" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/r1_chand.jpg" alt="Green glass chandelier above the dining table" loading="lazy"></figure><figure class="tall rv"><img src="assets/r1_pink.jpg" alt="Bedroom with a blush headboard and terracotta accents" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/r1_dining.jpg" alt="Dining room with powder-blue chairs and walnut cabinetry" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/p_KAI08743.jpg" alt="Dining table with a lit portrait and display cabinet" loading="lazy"></figure><figure class="tall rv"><img src="assets/p_KAI08887.jpg" alt="Bedroom with botanical wallpaper and a sage headboard" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/r1_bed.jpg" alt="Bedroom with a sage headboard and blue quilt" loading="lazy"></figure>
-      </div>
+      <figure class="lead rv"><img src="assets/r1_living.jpg" alt="Living room with a curved leather sofa and navy panelling" loading="lazy"></figure>
+      <div class="gallery"><figure class="span2 rv"><img src="assets/r1_pink.jpg" alt="Bedroom with a blush headboard and terracotta accents" loading="lazy"></figure><figure class=" rv"><img src="assets/r1_dining.jpg" alt="Dining room with powder-blue chairs and walnut cabinetry" loading="lazy"></figure><figure class=" rv"><img src="assets/p_KAI08743.jpg" alt="Dining table with a lit portrait and display cabinet" loading="lazy"></figure><figure class=" rv"><img src="assets/p_KAI08887.jpg" alt="Bedroom with botanical wallpaper and a sage headboard" loading="lazy"></figure><figure class=" rv"><img src="assets/r1_bed.jpg" alt="Bedroom with a sage headboard and blue quilt" loading="lazy"></figure></div>
     </article>
 
     <article class="proj" id="arav" aria-labelledby="arav-h">
       <div class="proj-text">
-        <span class="no">04 / Residence</span>
-        <h3 id="arav-h">Piramal Arav 4706</h3>
-        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
-        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        <div>
+          <span class="no">04 / Residence</span>
+          <h3 id="arav-h">Piramal Arav 4706</h3>
+          <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+          <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        </div>
+        <figure class="fill rv"><img src="assets/ar_b.jpg" alt="Reading chair against a misty forest mural with a glowing edge" loading="lazy"></figure>
       </div>
-      <div class="proj-media">
-          <figure class="wide rv"><img src="assets/ar_hero.jpg" alt="Living room with a cushioned TV panel and sheer curtains" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/ar_b.jpg" alt="Reading chair against a misty forest mural with a glowing edge" loading="lazy"></figure><figure class="tall rv"><img src="assets/ar_g.jpg" alt="Corridor with a botanical mural and arched wainscot" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/ar_a.jpg" alt="Bedroom with a fan-pleated headboard and brass sconces" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/ar_f.jpg" alt="TV unit with a quilted panel and timber backdrop" loading="lazy"></figure><figure class="tall rv"><img src="assets/ar_h.jpg" alt="Dining chairs in timber and cream" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/ar_d.jpg" alt="Bedroom in blush and lilac with floral wallpaper" loading="lazy"></figure>
-      </div>
+      <figure class="lead rv"><img src="assets/ar_hero.jpg" alt="Living room with a cushioned TV panel and sheer curtains" loading="lazy"></figure>
+      <div class="gallery"><figure class="span2 rv"><img src="assets/ar_g.jpg" alt="Corridor with a botanical mural and arched wainscot" loading="lazy"></figure><figure class=" rv"><img src="assets/ar_a.jpg" alt="Bedroom with a fan-pleated headboard and brass sconces" loading="lazy"></figure><figure class=" rv"><img src="assets/ar_f.jpg" alt="TV unit with a quilted panel and timber backdrop" loading="lazy"></figure><figure class=" rv"><img src="assets/ar_h.jpg" alt="Dining chairs in timber and cream" loading="lazy"></figure><figure class=" rv"><img src="assets/ar_d.jpg" alt="Bedroom in blush and lilac with floral wallpaper" loading="lazy"></figure></div>
     </article>
 
     <article class="proj" id="sterling" aria-labelledby="sterling-h">
       <div class="proj-text">
-        <span class="no">05 / Residence</span>
-        <h3 id="sterling-h">Sterling 1003</h3>
-        <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
-        <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        <div>
+          <span class="no">05 / Residence</span>
+          <h3 id="sterling-h">Sterling 1003</h3>
+          <dl class="facts"><dt>Type</dt><dd>Residence</dd><dt>Scope</dt><dd>Interior design</dd></dl>
+          <div class="note"><p class="muted">Concept note coming soon.</p></div>
+        </div>
+        <figure class="fill rv"><img src="assets/st_b.jpg" alt="Bedroom with a terracotta sculpted panel" loading="lazy"></figure>
       </div>
-      <div class="proj-media">
-          <figure class="wide rv"><img src="assets/st_hero.jpg" alt="Living room with arched display cabinetry and a cream sofa" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/st_b.jpg" alt="Bedroom with a terracotta sculpted panel" loading="lazy"></figure><figure class="tall rv"><img src="assets/st_e.jpg" alt="Sofa corner with a sculpted wall light" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/st_a.jpg" alt="Bedroom with a terracotta feature wall and sheer curtains" loading="lazy"></figure>
-          <div class="duo"><figure class="tall rv"><img src="assets/st_g.jpg" alt="Vanity in sage and textured laminate" loading="lazy"></figure><figure class="tall rv"><img src="assets/st_c.jpg" alt="TV wall with a stone-textured panel and floating console" loading="lazy"></figure></div>
-          <figure class="wide rv"><img src="assets/st_f.jpg" alt="Powder room with sage wall and timber-grain storage" loading="lazy"></figure>
-      </div>
+      <figure class="lead rv"><img src="assets/st_hero.jpg" alt="Living room with arched display cabinetry and a cream sofa" loading="lazy"></figure>
+      <div class="gallery"><figure class="span2 rv"><img src="assets/st_e.jpg" alt="Sofa corner with a sculpted wall light" loading="lazy"></figure><figure class=" rv"><img src="assets/st_a.jpg" alt="Bedroom with a terracotta feature wall and sheer curtains" loading="lazy"></figure><figure class=" rv"><img src="assets/st_g.jpg" alt="Vanity in sage and textured laminate" loading="lazy"></figure><figure class=" rv"><img src="assets/st_c.jpg" alt="TV wall with a stone-textured panel and floating console" loading="lazy"></figure><figure class=" rv"><img src="assets/st_f.jpg" alt="Powder room with sage wall and timber-grain storage" loading="lazy"></figure></div>
     </article>
   </section>
 
@@ -453,8 +454,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.ta
 document.querySelectorAll('.rv').forEach(el=>reduce?el.classList.add('in'):io.observe(el));
 
 /* ---------- keep short project text beside its photos ---------- */
-function sticky(){ document.querySelectorAll('.proj-text').forEach(t=>t.classList.toggle('stick', innerWidth>860 && t.offsetHeight < innerHeight-140)); }
-sticky(); addEventListener('resize',sticky); addEventListener('load',sticky);
+
 
 /* ---------- underline the menu item for the section on screen ---------- */
 const links=[...document.querySelectorAll('.nav a')];
