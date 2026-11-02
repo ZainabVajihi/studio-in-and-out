@@ -72,31 +72,27 @@ main,footer{position:relative;z-index:1}
 
 /* hero: the logo's black and white bands, IN on black, OUT on white, the yellow & between */
 .hero{padding-top:calc(var(--head) + env(safe-area-inset-top,0px) + clamp(24px,3.4vw,48px))}
-.intro{display:grid;grid-template-columns:7fr 5fr;gap:20px 40px;align-items:end;padding-bottom:clamp(22px,3vw,40px)}
+.intro{display:grid;grid-template-columns:1fr;gap:20px 40px;align-items:end;padding-bottom:clamp(22px,3vw,40px)}
 .intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,76px);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
 .intro h1 em{font-style:italic}
-.figure{justify-self:end;display:grid;gap:4px;text-align:right}
-.figure strong{font-weight:500;font-size:clamp(38px,4.4vw,68px);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums}
-.figure strong small{font-size:.42em;font-weight:400;letter-spacing:-.01em;margin-left:.2em}
-.figure span{font-size:14px;font-weight:500;color:#4a4a4a}
-.figure span .amp{font-size:1.25em}
-.halves{--wb:clamp(118px,15vw,230px);--pd:clamp(10px,1.3vw,18px);position:relative;display:grid;grid-template-columns:1fr 1fr;height:clamp(420px,66svh,780px)}
-.half{position:relative;display:grid;grid-template-rows:1fr var(--wb);padding:var(--pd) var(--pd) 0;overflow:hidden}
-.half.in{background:var(--ink);color:#fff}
-.half.out{background:var(--paper);color:var(--ink)}
-.half .ph{overflow:hidden;min-height:0;background:var(--stone)}
+.halves{--pd:clamp(14px,2vw,32px);position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,.8vw,12px);height:clamp(440px,70svh,820px)}
+.half{position:relative;overflow:hidden;background:var(--stone)}
+.half .ph{position:absolute;inset:0}
 .half .ph img{width:100%;height:100%;object-fit:cover}
-.half .lbl{display:grid;align-content:center;gap:clamp(4px,.6vw,10px);padding-inline:clamp(4px,1.2vw,20px)}
-.half.out .lbl{justify-items:end;text-align:right}
-.half .lbl span{font-family:var(--serif);font-weight:500;font-size:clamp(52px,9.4vw,168px);line-height:.82;letter-spacing:-.04em}
-.half .lbl small{font-size:clamp(13px,1.15vw,17px);font-weight:400;letter-spacing:.18em;opacity:.85}
-.knot{position:absolute;left:50%;bottom:calc(var(--wb) / 2);transform:translate(-50%,50%);z-index:3;pointer-events:none}
-.knot span{display:block;font-size:clamp(70px,10vw,180px);line-height:1}
+/* the logo's bands: a tall black band behind IN, a tall white band behind OUT */
+.half .lbl{position:absolute;bottom:0;height:62%;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(6px,.8vw,12px);padding:clamp(18px,2.4vw,36px) clamp(18px,2.2vw,34px)}
+.half.in .lbl{left:var(--pd);background:var(--ink);color:#fff}
+.half.out .lbl{right:var(--pd);background:var(--paper);color:var(--ink);align-items:flex-end;text-align:right}
+.half .lbl span{font-family:var(--serif);font-weight:500;font-size:clamp(48px,7.6vw,140px);line-height:.82;letter-spacing:-.04em}
+.half .lbl small{font-size:clamp(12px,1.05vw,16px);font-weight:400;letter-spacing:.18em;opacity:.85}
+.knot{position:absolute;left:50%;bottom:clamp(40px,6vw,96px);transform:translate(-50%,50%);z-index:3;pointer-events:none}
+.knot span{display:block;font-size:clamp(70px,10vw,180px);line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.25)}
 /* one load moment: the bands part from the seam, then the ampersand lands */
 @media(prefers-reduced-motion:no-preference){
   .js .half{animation:part 1.2s var(--ease) .1s both}
   .js .half.in{--from:inset(0 0 0 100%)}
   .js .half.out{--from:inset(0 100% 0 0)}
+  .js .half .lbl{transform-origin:bottom}
   .js .half .ph img{animation:settle 1.8s var(--ease) .1s both}
   .js .half .lbl{animation:rise .9s var(--ease) .8s both}
   .js .knot{animation:pop .7s var(--ease) 1.05s both}
@@ -108,8 +104,8 @@ main,footer{position:relative;z-index:1}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes pop{from{opacity:0;transform:translate(-50%,50%) scale(.6)}to{opacity:1;transform:translate(-50%,50%) scale(1)}}
 @media(max-width:760px){
-  .intro{grid-template-columns:1fr}.figure{justify-self:start;text-align:left}
-  .halves{height:clamp(380px,58svh,520px);--wb:112px;--pd:8px}
+  .intro{grid-template-columns:1fr}  .halves{height:clamp(380px,60svh,540px);--pd:10px}
+  .half .lbl{height:56%;padding:14px 12px}
   .half .lbl small{letter-spacing:.12em;font-size:11px}
 }
 
@@ -120,6 +116,12 @@ main,footer{position:relative;z-index:1}
 .page-head p{margin-top:16px;color:#4a4a4a;max-width:52ch}
 
 /* statement */
+.stat{display:grid;gap:6px;margin-top:clamp(40px,5vw,72px);padding-top:clamp(20px,2.4vw,32px);border-top:1px solid var(--ink);max-width:560px}
+.stat strong{font-weight:500;font-size:clamp(48px,6vw,96px);line-height:1;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat strong small{font-size:.36em;font-weight:400;letter-spacing:-.01em;margin-left:.25em}
+.stat>span{font-size:16px;font-weight:500;color:#4a4a4a}
+.stat .amp{font-size:1.2em}
+
 .statement{padding-block:clamp(100px,13vw,200px) clamp(80px,10vw,140px)}
 .st-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,6vw,110px);align-items:center}
 .st-grid>*{min-width:0}
@@ -298,10 +300,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
   <section class="hero wrap" aria-labelledby="hero-h">
     <div class="intro">
       <h1 id="hero-h">A perspective <em>beyond</em> aesthetics.</h1>
-      <div class="figure">
-        <strong>1,00,000<small>sq. ft.</small></strong>
-        <span>designed <span class="amp">&amp;</span> delivered</span>
-      </div>
+
     </div>
     <div class="halves">
       <figure class="half in"><div class="ph"><img src="assets/ar_b.jpg" alt="A reading chair against a misty forest mural, inside a Piramal Arav home"></div><figcaption class="lbl"><span>IN</span><small>Interior</small></figcaption></figure>
@@ -316,6 +315,10 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
         <p class="reveal-text">We don't simply design spaces. We shape experiences, evoke emotions, and create environments that leave a lasting impression.</p>
         <div class="st-note">
           <p>At Studio In <span class="amp">&amp;</span> Out, every detail has intention, every element has purpose, and every space tells a story.</p>
+        </div>
+        <div class="stat">
+          <strong>1,00,000<small>sq. ft.</small></strong>
+          <span>designed <span class="amp">&amp;</span> delivered</span>
         </div>
       </div>
       <div class="st-media" aria-hidden="true">
