@@ -80,7 +80,7 @@ main,footer{position:relative;z-index:1}
 .half .ph{position:absolute;inset:0}
 .half .ph img{width:100%;height:100%;object-fit:cover}
 /* the logo's bands: a tall black band behind IN, a tall white band behind OUT */
-.half .lbl{position:absolute;bottom:0;height:62%;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(6px,.8vw,12px);padding:clamp(18px,2.4vw,36px) clamp(18px,2.2vw,34px)}
+.half .lbl{position:absolute;bottom:0;height:48%;min-height:fit-content;display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(6px,.8vw,12px);padding:clamp(18px,2.4vw,36px) clamp(18px,2.2vw,34px)}
 .half.in .lbl{left:var(--pd);background:var(--ink);color:#fff}
 .half.out .lbl{right:var(--pd);background:var(--paper);color:var(--ink);align-items:flex-end;text-align:right}
 .half .lbl span{font-family:var(--serif);font-weight:500;font-size:clamp(48px,7.6vw,140px);line-height:.82;letter-spacing:-.04em}
@@ -105,7 +105,7 @@ main,footer{position:relative;z-index:1}
 @keyframes pop{from{opacity:0;transform:translate(-50%,50%) scale(.6)}to{opacity:1;transform:translate(-50%,50%) scale(1)}}
 @media(max-width:760px){
   .intro{grid-template-columns:1fr}  .halves{height:clamp(380px,60svh,540px);--pd:10px}
-  .half .lbl{height:56%;padding:14px 12px}
+  .half .lbl{height:46%;padding:14px 12px}
   .half .lbl small{letter-spacing:.12em;font-size:11px}
 }
 
