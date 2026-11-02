@@ -89,13 +89,13 @@ main,footer{position:relative;z-index:1}
 .knot span{display:block;font-size:clamp(70px,10vw,180px);line-height:1;text-shadow:0 4px 24px rgba(0,0,0,.25)}
 /* one load moment: the bands part from the seam, then the ampersand lands */
 @media(prefers-reduced-motion:no-preference){
-  .js .half{animation:part 1.2s var(--ease) .1s both}
+  .js .half{animation:part 2.2s var(--ease) .2s both}
   .js .half.in{--from:inset(0 0 0 100%)}
   .js .half.out{--from:inset(0 100% 0 0)}
   .js .half .lbl{transform-origin:bottom}
-  .js .half .ph img{animation:settle 1.8s var(--ease) .1s both}
-  .js .half .lbl{animation:rise .9s var(--ease) .8s both}
-  .js .knot{animation:pop .7s var(--ease) 1.05s both}
+  .js .half .ph img{animation:settle 3.2s var(--ease) .2s both}
+  .js .half .lbl{animation:rise 1.2s var(--ease) 1.5s both}
+  .js .knot{animation:pop 1s var(--ease) 2s both}
   .js .intro>*{animation:rise .9s var(--ease) both}
   .js .intro>*+*{animation-delay:.12s}
 }
@@ -303,7 +303,7 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 
     </div>
     <div class="halves">
-      <figure class="half in"><div class="ph"><img src="assets/ar_b.jpg" alt="A reading chair against a misty forest mural, inside a Piramal Arav home"></div><figcaption class="lbl"><span>IN</span><small>Interior</small></figcaption></figure>
+      <figure class="half in"><div class="ph"><img src="assets/r1_living.jpg" alt="Living room with a curved leather sofa and navy panelling, Piramal 603"></div><figcaption class="lbl"><span>IN</span><small>Interior</small></figcaption></figure>
       <figure class="half out"><div class="ph"><img src="assets/balc_big.jpg" alt="A balcony looking out over the Mumbai skyline"></div><figcaption class="lbl"><span>OUT</span><small>Architecture</small></figcaption></figure>
       <div class="knot" aria-hidden="true"><span class="amp">&amp;</span></div>
     </div>
