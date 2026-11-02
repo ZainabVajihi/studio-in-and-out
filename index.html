@@ -222,20 +222,21 @@ main,footer{position:relative;z-index:1}
 /* founders: text left, photo right */
 .founders{padding-block:clamp(80px,10vw,150px);background:var(--paper)}
 .names{font-size:clamp(18px,1.6vw,22px);margin-top:14px;color:var(--concrete)}
-.f-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,5vw,96px);align-items:stretch}
+.f-grid{display:grid;grid-template-columns:7fr 4fr;gap:clamp(28px,5vw,96px);align-items:center}
+.f-head{margin-bottom:clamp(24px,3vw,40px)}
 .f-grid>*{min-width:0}
 .f-copy p{color:#3e3e3e}
 .f-copy p+p{margin-top:16px}
 .f-copy blockquote{font-family:var(--serif);font-size:clamp(22px,2.2vw,34px);font-weight:400;letter-spacing:-.02em;line-height:1.08;margin-top:36px;color:var(--ink)}
 .f-copy blockquote::before{content:"";display:block;width:44px;height:3px;background:var(--marigold);margin-bottom:18px}
-.duo-photo{min-width:0;display:grid;grid-template-rows:1fr auto}
-.duo-photo .ph{position:relative;min-height:420px;background:var(--stone);overflow:hidden}
-.duo-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.duo-photo{min-width:0}
+.duo-photo .ph{background:var(--stone)}
+.duo-photo img{display:block;width:100%;height:auto}
 .duo-photo figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:14px}
 .duo-photo b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(18px,1.6vw,24px);line-height:1.05;color:var(--ink)}
 .duo-photo span{font-size:14px;color:var(--concrete)}
 .duo-photo span:last-child{text-align:right}
-@media(max-width:860px){.f-grid{grid-template-columns:1fr}.duo-photo .ph{min-height:0;aspect-ratio:4/5}}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr}}
 
 /* contact + contractors: two plain sections */
 .form-sec{padding-block:clamp(80px,10vw,140px)}
@@ -391,12 +392,12 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 
   <section class="founders" id="founders" aria-labelledby="f-h">
     <div class="wrap">
-      <div class="sec-head" style="display:block">
-        <h2 class="sec-title" id="f-h">The minds behind Studio In <span class="amp">&amp;</span> Out</h2>
-        <p class="names">Abdeali Kachwala &amp; Ar. Sakina Kachwala</p>
-      </div>
       <div class="f-grid">
         <div class="f-copy">
+          <div class="f-head">
+            <h2 class="sec-title" id="f-h">The minds behind Studio In <span class="amp">&amp;</span> Out</h2>
+            <p class="names">Abdeali Kachwala &amp; Ar. Sakina Kachwala</p>
+          </div>
           <p>United by a shared passion for design, Abdeali and Sakina bring together two distinct perspectives, interior design and architecture, to create spaces that are both expressive and purposeful.</p>
           <p>As the co-founders of Studio In &amp; Out, their approach goes beyond aesthetics, focusing on thoughtful spatial planning, refined detailing, and a deep understanding of how people experience spaces.</p>
           <p>Abdeali brings a keen eye for materials, detailing, and design expression, while Sakina lends her architectural perspective, balancing creativity with spatial clarity and functionality.</p>
