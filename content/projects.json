@@ -1,0 +1,292 @@
+[
+  {
+    "slug": "a3805",
+    "number": "01",
+    "kind": "Studio extension",
+    "name": "Studio A3805",
+    "facts": [
+      {
+        "label": "Area",
+        "value": "350 sq. ft."
+      },
+      {
+        "label": "Scope",
+        "value": "Interior design"
+      },
+      {
+        "label": "Key idea",
+        "value": "A rotating TV unit that works as a partition"
+      }
+    ],
+    "concept_note": [
+      "Studio A3805 represents the art of maximization within a compact footprint. Designed as a 350 sq. ft. extension across the passage from the client's existing 3BHK, this project was conceived with a singular vision: to establish a distinct, formal living sanctuary that balances modern entertainment with traditional hospitality.",
+      "The layout is centered around a dynamic architectural intervention: a custom-designed, rotating TV unit. This pivotal element functions as a flexible partition, effectively zoning the studio into two distinct moods while maintaining an open, airy feel.",
+      "On one side lies the contemporary social zone, featuring a plush sofa setup and a bespoke breakfast counter/juice bar. The bar becomes a visual focal point with its vibrant red fluted detailing and brass accents, complemented by the softness of floral printed mirrors that add depth and intrigue.",
+      "On the other side of the rotating divider, the design pays homage to cultural roots with a traditional Indian Baithak. This zone is dedicated to relaxed, low-seating comfort, framed by elegant wall moldings and warm, ambient lighting. The material palette throughout creates a cohesive sense of luxury, utilizing rich designer veneers, coffered ceilings, and curated decor to transform a small extension into a grand statement of style."
+    ],
+    "media": [
+      {
+        "type": "video",
+        "src": "/assets/turn.mp4",
+        "poster": "/assets/turn_poster.jpg",
+        "alt": "The custom TV unit rotating from the social zone to the Baithak"
+      },
+      {
+        "type": "image",
+        "src": "/assets/s_wide.jpg",
+        "alt": "Timber-grid partition with the rotating TV unit and red fluted bar"
+      },
+      {
+        "type": "image",
+        "src": "/assets/s_bar.jpg",
+        "alt": "Breakfast counter and juice bar with red fluted detailing and brass accents"
+      },
+      {
+        "type": "image",
+        "src": "/assets/s_door.jpg",
+        "alt": "Entrance door with amber glass panels"
+      },
+      {
+        "type": "image",
+        "src": "/assets/s_baithak.jpg",
+        "alt": "The Baithak side, framed by wall mouldings and warm lighting"
+      }
+    ],
+    "sort_order": 1,
+    "published": true
+  },
+  {
+    "slug": "a3804",
+    "number": "02",
+    "kind": "Residence",
+    "name": "Studio A3804",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Residence"
+      },
+      {
+        "label": "Scope",
+        "value": "Interior design"
+      },
+      {
+        "label": "Palette",
+        "value": "Neutrals, wood, blue and blush"
+      }
+    ],
+    "concept_note": [
+      "Studio A3804 is a thoughtfully curated residential interior that celebrates understated elegance through balance, comfort, and continuity. Designed as a seamless extension of the client's lifestyle, the project brings together refined aesthetics and everyday functionality, creating spaces that feel warm, personal, and timeless.",
+      "The home is envisioned with a soft modern sensibility, where muted colour palettes, tactile materials, and gentle contrasts define each space. From the dining area to the living and bedrooms, the design language remains cohesive, anchored by neutral backdrops, enriched with natural wood finishes, fluted details, and subtle accents in blues, blush tones, and earthy hues.",
+      "The dining space acts as a quiet focal point, combining clean-lined furniture with curated lighting and textured wall treatments to elevate daily rituals. Custom cabinetry and display units enhance storage while maintaining visual lightness. The living area is designed as a comfortable yet elegant retreat, layered with plush seating, soft furnishings, and controlled natural light to create a welcoming atmosphere for both family gatherings and intimate moments.",
+      "Private spaces are treated with a calmer, more intimate approach. The bedrooms are conceived as restful sanctuaries, defined by upholstered headboards, soft textiles, and carefully selected accent elements that add warmth without overpowering the space. Decorative lighting, minimal open shelving, and curated décor introduce character while preserving a sense of visual calm.",
+      "Throughout Studio A3804, attention is given to proportion, material harmony, and detailing, ensuring that every element contributes to a unified narrative. The result is a home that feels refined yet lived-in, where modern design meets comfort, and aesthetics quietly support the rhythm of everyday life."
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/b_tvwall.jpg",
+        "alt": "Living room with a lit display wall, gold trims and calligraphy panels"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_kids2.jpg",
+        "alt": "Arched green shelving framing a bedroom"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_foyer2.jpg",
+        "alt": "Foyer with a patterned mirror wall and pendant lights"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_kids3.jpg",
+        "alt": "Child's bedroom with an arched niche and lit shelving"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_door2.jpg",
+        "alt": "Entrance door with timber and stone inlays beside a green wall"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_foyer1.jpg",
+        "alt": "Foyer with wall mouldings, brass sconce and stone panel"
+      },
+      {
+        "type": "image",
+        "src": "/assets/b_pink.jpg",
+        "alt": "Bedroom with a coral chevron headboard"
+      }
+    ],
+    "sort_order": 2,
+    "published": true
+  },
+  {
+    "slug": "p603",
+    "number": "03",
+    "kind": "Residence",
+    "name": "Piramal 603",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Residence"
+      },
+      {
+        "label": "Scope",
+        "value": "Interior design"
+      }
+    ],
+    "concept_note": [],
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/r1_living.jpg",
+        "alt": "Living room with a curved leather sofa and navy panelling"
+      },
+      {
+        "type": "image",
+        "src": "/assets/r1_chand.jpg",
+        "alt": "Green glass chandelier above the dining table"
+      },
+      {
+        "type": "image",
+        "src": "/assets/r1_pink.jpg",
+        "alt": "Bedroom with a blush headboard and terracotta accents"
+      },
+      {
+        "type": "image",
+        "src": "/assets/r1_dining.jpg",
+        "alt": "Dining room with powder-blue chairs and walnut cabinetry"
+      },
+      {
+        "type": "image",
+        "src": "/assets/p_KAI08743.jpg",
+        "alt": "Dining table with a lit portrait and display cabinet"
+      },
+      {
+        "type": "image",
+        "src": "/assets/p_KAI08887.jpg",
+        "alt": "Bedroom with botanical wallpaper and a sage headboard"
+      },
+      {
+        "type": "image",
+        "src": "/assets/r1_bed.jpg",
+        "alt": "Bedroom with a sage headboard and blue quilt"
+      }
+    ],
+    "sort_order": 3,
+    "published": true
+  },
+  {
+    "slug": "arav",
+    "number": "04",
+    "kind": "Residence",
+    "name": "Piramal Arav 4706",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Residence"
+      },
+      {
+        "label": "Scope",
+        "value": "Interior design"
+      }
+    ],
+    "concept_note": [],
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/ar_hero.jpg",
+        "alt": "Living room with a cushioned TV panel and sheer curtains"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_b.jpg",
+        "alt": "Reading chair against a misty forest mural with a glowing edge"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_g.jpg",
+        "alt": "Corridor with a botanical mural and arched wainscot"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_a.jpg",
+        "alt": "Bedroom with a fan-pleated headboard and brass sconces"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_f.jpg",
+        "alt": "TV unit with a quilted panel and timber backdrop"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_h.jpg",
+        "alt": "Dining chairs in timber and cream"
+      },
+      {
+        "type": "image",
+        "src": "/assets/ar_d.jpg",
+        "alt": "Bedroom in blush and lilac with floral wallpaper"
+      }
+    ],
+    "sort_order": 4,
+    "published": true
+  },
+  {
+    "slug": "sterling",
+    "number": "05",
+    "kind": "Residence",
+    "name": "Sterling 1003",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Residence"
+      },
+      {
+        "label": "Scope",
+        "value": "Interior design"
+      }
+    ],
+    "concept_note": [],
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/st_hero.jpg",
+        "alt": "Living room with arched display cabinetry and a cream sofa"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_b.jpg",
+        "alt": "Bedroom with a terracotta sculpted panel"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_e.jpg",
+        "alt": "Sofa corner with a sculpted wall light"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_a.jpg",
+        "alt": "Bedroom with a terracotta feature wall and sheer curtains"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_g.jpg",
+        "alt": "Vanity in sage and textured laminate"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_c.jpg",
+        "alt": "TV wall with a stone-textured panel and floating console"
+      },
+      {
+        "type": "image",
+        "src": "/assets/st_f.jpg",
+        "alt": "Powder room with sage wall and timber-grain storage"
+      }
+    ],
+    "sort_order": 5,
+    "published": true
+  }
+]
