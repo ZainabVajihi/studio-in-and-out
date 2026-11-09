@@ -1,9 +1,11 @@
 // Shapes of the site's editable content. The same shapes are stored in the
 // database (supabase/schema.sql), so the admin panel can edit them later.
 
+// display "full": shown across the whole width, uncropped (plans, panoramas).
+type MediaExtras = { display?: "full"; caption?: string };
 export type Media =
-  | { type: "image"; src: string; alt: string }
-  | { type: "video"; src: string; poster: string; alt: string };
+  | ({ type: "image"; src: string; alt: string } & MediaExtras)
+  | ({ type: "video"; src: string; poster: string; alt: string } & MediaExtras);
 
 export type Project = {
   slug: string;
@@ -11,7 +13,8 @@ export type Project = {
   kind: string;
   name: string;
   facts: { label: string; value: string }[];
-  concept_note: string[];
+  concept_note: string[]; // a paragraph starting with "## " is a small heading
+  documents?: { label: string; href: string }[];
   media: Media[];
   sort_order: number;
   published: boolean;

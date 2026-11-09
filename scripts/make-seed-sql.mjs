@@ -21,12 +21,12 @@ for (const [key, value] of Object.entries(site)) {
 out.push("", "-- projects and their photos");
 for (const p of projects) {
   out.push(
-    `insert into public.projects (slug, number, kind, name, facts, concept_note, sort_order, published) values (${q(p.slug)}, ${q(p.number)}, ${q(p.kind)}, ${q(p.name)}, ${json(p.facts)}, ${arr(p.concept_note)}, ${p.sort_order}, ${p.published})\n  on conflict (slug) do update set number = excluded.number, kind = excluded.kind, name = excluded.name, facts = excluded.facts, concept_note = excluded.concept_note, sort_order = excluded.sort_order, published = excluded.published;`,
+    `insert into public.projects (slug, number, kind, name, facts, concept_note, documents, sort_order, published) values (${q(p.slug)}, ${q(p.number)}, ${q(p.kind)}, ${q(p.name)}, ${json(p.facts)}, ${arr(p.concept_note)}, ${json(p.documents ?? [])}, ${p.sort_order}, ${p.published})\n  on conflict (slug) do update set number = excluded.number, kind = excluded.kind, name = excluded.name, facts = excluded.facts, concept_note = excluded.concept_note, documents = excluded.documents, sort_order = excluded.sort_order, published = excluded.published;`,
   );
   out.push(`delete from public.project_media where project_id = (select id from public.projects where slug = ${q(p.slug)});`);
   p.media.forEach((m, i) => {
     out.push(
-      `insert into public.project_media (project_id, type, src, poster, alt, sort_order) values ((select id from public.projects where slug = ${q(p.slug)}), ${q(m.type)}, ${q(m.src)}, ${q(m.poster ?? null)}, ${q(m.alt)}, ${i + 1});`,
+      `insert into public.project_media (project_id, type, src, poster, alt, display, caption, sort_order) values ((select id from public.projects where slug = ${q(p.slug)}), ${q(m.type)}, ${q(m.src)}, ${q(m.poster ?? null)}, ${q(m.alt)}, ${q(m.display ?? null)}, ${q(m.caption ?? null)}, ${i + 1});`,
     );
   });
   out.push("");

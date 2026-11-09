@@ -288,5 +288,96 @@
     ],
     "sort_order": 5,
     "published": true
+  },
+  {
+    "slug": "lonavala-abode",
+    "number": "06",
+    "kind": "Architecture",
+    "name": "Lonavala Abode",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "6-BHK luxury villa"
+      },
+      {
+        "label": "Scope",
+        "value": "Architecture"
+      },
+      {
+        "label": "Location",
+        "value": "Lonavala"
+      }
+    ],
+    "concept_note": [
+      "This 6-BHK luxury villa is an architectural response to the need for a “home away from home”, a space that functions as a private ecosystem. The design departs from traditional outward-facing luxury, instead adopting an inward-looking morphology that shields the inhabitant from external distractions, creating a profound sense of “seclusion within.”",
+      "## The built vs. the void",
+      "The project balances high-end minimalist interiors with intentional architectural porosity. By minimizing the interior footprint and maximizing the area dedicated to deep-set balconies and verdant courtyards, the villa dissolves the traditional wall. The result is a living experience where the user is constantly connected to the elements, yet entirely protected from the public gaze.",
+      "## Experiential anchors",
+      "The site is anchored by two distinct gazebos, strategically placed to offer contrasting environmental moods. One serves as a vibrant, light-filled space for social engagement, while the other is a shaded, quiet retreat for contemplation. These structures ensure that the landscape is not just a view, but a curated sequence of sensory experiences."
+    ],
+    "documents": [
+      {
+        "label": "Download the project panel (PDF)",
+        "href": "/assets/lonavala-abode-panel.pdf"
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/assets/lon_aerial.jpg",
+        "alt": "Aerial view of the villa: clay-tile roofs around a circular entrance pavilion, set against the Sahyadri hills"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_gazebo.jpg",
+        "alt": "A timber gazebo over a lily pond, reached by stepping stones, beside the clay-tiled cottage"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_cottage.jpg",
+        "alt": "A cottage wing with a planted balcony and a tiled pergola, looking towards the hills"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_interior.jpg",
+        "alt": "A reading corner with a striped armchair, timber ceiling and tall windows onto the garden"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_plan.jpg",
+        "alt": "Site plan of Lonavala Abode showing the courtyards, pool, gazebos and garden",
+        "display": "full",
+        "caption": "Site plan"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_site.jpg",
+        "alt": "The site before construction, with the hills beyond"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_wall.jpg",
+        "alt": "The boundary wall going up around the site"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_slab.jpg",
+        "alt": "Reinforcement and formwork for the ground slab"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_gazebo_build.jpg",
+        "alt": "One of the gazebos under construction"
+      },
+      {
+        "type": "image",
+        "src": "/assets/lon_columns.jpg",
+        "alt": "Columns rising across the site during construction",
+        "display": "full",
+        "caption": "On site: the villa under construction"
+      }
+    ],
+    "sort_order": 6,
+    "published": true
   }
 ]

@@ -284,3 +284,12 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 .next-proj a:hover span{font-style:italic}
 .p-single .page-head{padding-bottom:0}
 .p-single .work{padding-top:clamp(12px,2vw,24px)}
+
+/* project extras: small headings in a concept note, document links, full-width uncropped figures */
+.note h4{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:-.01em;color:var(--ink);margin-top:22px}
+.note h4+p{margin-top:6px}
+.doc-link{display:inline-block;margin-top:22px;font-weight:500;font-size:15px;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+.doc-link:hover{color:var(--concrete)}
+.proj .full-fig{grid-column:1/-1;background:transparent;overflow:visible}
+.proj .full-fig img,.proj .full-fig video{width:100%;height:auto;object-fit:contain;position:static;background:var(--paper)}
+.proj .full-fig figcaption{font-size:13px;font-weight:500;color:var(--concrete);margin-top:10px}

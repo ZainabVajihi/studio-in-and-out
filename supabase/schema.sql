@@ -21,7 +21,8 @@ create table if not exists public.projects (
   kind          text not null,
   name          text not null,
   facts         jsonb not null default '[]'::jsonb,   -- [{ "label": "Area", "value": "350 sq. ft." }]
-  concept_note  text[] not null default '{}',          -- one entry per paragraph
+  concept_note  text[] not null default '{}',          -- one entry per paragraph; "## " starts a small heading
+  documents     jsonb not null default '[]'::jsonb,   -- [{ "label": "Download the project panel (PDF)", "href": "/assets/x.pdf" }]
   sort_order    integer not null default 0,
   published     boolean not null default true,
   created_at    timestamptz not null default now(),
@@ -37,8 +38,15 @@ create table if not exists public.project_media (
   src         text not null,
   poster      text,
   alt         text not null default '',
+  display     text check (display in ('full')),     -- 'full' = across the whole width, uncropped
+  caption     text,
   sort_order  integer not null default 0
 );
+-- Columns added after the first release (safe to run on an existing database).
+alter table public.projects      add column if not exists documents jsonb not null default '[]'::jsonb;
+alter table public.project_media add column if not exists display text check (display in ('full'));
+alter table public.project_media add column if not exists caption text;
+
 create index if not exists project_media_project_idx on public.project_media (project_id, sort_order);
 
 -- Keep updated_at current.

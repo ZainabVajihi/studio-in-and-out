@@ -16,15 +16,26 @@ function Fig({ m, cls }: { m: Media; cls: string }) {
 
 /**
  * Text on the left and one photo on the right at the same height, then the
- * remaining photos in an even three-column grid. Wide tiles are added at the
- * start so every row ends full.
+ * remaining photos in even three-column grids. Wide tiles are added at the
+ * start of each grid so every row ends full. Photos marked display "full"
+ * (plans, panoramas) sit between the grids across the whole width, uncropped.
  */
 export function ProjectArticle({ p, linkTitle }: { p: Project; linkTitle?: boolean }) {
   const rest = [...p.media];
   const lead = rest.shift();
   const hasNote = p.concept_note.length > 0;
   const fill = hasNote ? undefined : rest.shift();
-  const wide = (3 - (rest.length % 3)) % 3;
+
+  // split the remaining photos into grids, broken by full-width items
+  const blocks: ({ kind: "grid"; items: Media[] } | { kind: "full"; item: Media })[] = [];
+  for (const m of rest) {
+    if (m.display === "full") blocks.push({ kind: "full", item: m });
+    else {
+      const last = blocks[blocks.length - 1];
+      if (last?.kind === "grid") last.items.push(m);
+      else blocks.push({ kind: "grid", items: [m] });
+    }
+  }
 
   return (
     <article className="proj" id={p.slug} aria-labelledby={`${p.slug}-h`}>
@@ -40,17 +51,44 @@ export function ProjectArticle({ p, linkTitle }: { p: Project; linkTitle?: boole
             ))}
           </dl>
           <div className="note">
-            {hasNote ? p.concept_note.map((t, i) => <p key={i}>{t}</p>) : <p className="muted">Concept note coming soon.</p>}
+            {hasNote ? (
+              p.concept_note.map((t, i) => (t.startsWith("## ") ? <h4 key={i}>{t.slice(3)}</h4> : <p key={i}>{t}</p>))
+            ) : (
+              <p className="muted">Concept note coming soon.</p>
+            )}
           </div>
+          {p.documents?.map((d) => (
+            <a key={d.href} className="doc-link" href={d.href} target="_blank" rel="noopener">
+              {d.label}
+            </a>
+          ))}
         </div>
         {fill && <Fig m={fill} cls="fill" />}
       </div>
       {lead && <Fig m={lead} cls="lead" />}
-      <div className="gallery">
-        {rest.map((m, i) => (
-          <Fig key={m.src} m={m} cls={i % 2 === 0 && i / 2 < wide ? "span2" : ""} />
-        ))}
-      </div>
+      {blocks.map((b, bi) => {
+        if (b.kind === "full") {
+          const m = b.item;
+          return (
+            <figure className="full-fig rv" key={m.src}>
+              {m.type === "video" ? (
+                <video src={m.src} poster={m.poster} autoPlay muted loop playsInline aria-label={m.alt} />
+              ) : (
+                <img src={m.src} alt={m.alt} loading="lazy" />
+              )}
+              {m.caption && <figcaption>{m.caption}</figcaption>}
+            </figure>
+          );
+        }
+        const wide = (3 - (b.items.length % 3)) % 3;
+        return (
+          <div className="gallery" key={`g${bi}`}>
+            {b.items.map((m, i) => (
+              <Fig key={m.src} m={m} cls={i % 2 === 0 && i / 2 < wide ? "span2" : ""} />
+            ))}
+          </div>
+        );
+      })}
     </article>
   );
 }
