@@ -25,14 +25,14 @@ export async function getSite(): Promise<Site> {
 }
 
 type ProjectRow = Omit<Project, "media"> & {
-  project_media: (Media & { sort_order: number; poster: string | null; display: string | null; caption: string | null })[];
+  project_media: (Media & { sort_order: number; poster: string | null; display: string | null; caption: string | null; badge: string | null })[];
 };
 
 export async function getProjects(): Promise<Project[]> {
   if (!db) return (seedProjects as Project[]).filter((p) => p.published).sort((a, b) => a.sort_order - b.sort_order);
   const { data, error } = await db
     .from("projects")
-    .select("slug, number, kind, name, facts, concept_note, documents, sort_order, published, project_media(type, src, poster, alt, sort_order, display, caption)")
+    .select("slug, number, kind, name, facts, concept_note, documents, sort_order, published, project_media(type, src, poster, alt, sort_order, display, caption, badge)")
     .eq("published", true)
     .order("sort_order");
   if (error || !data) {
@@ -44,7 +44,7 @@ export async function getProjects(): Promise<Project[]> {
     media: [...project_media]
       .sort((a, b) => a.sort_order - b.sort_order)
       .map((m) => {
-        const extras = { ...(m.display === "full" ? { display: "full" as const } : {}), ...(m.caption ? { caption: m.caption } : {}) };
+        const extras = { ...(m.display === "full" ? { display: "full" as const } : {}), ...(m.caption ? { caption: m.caption } : {}), ...(m.badge ? { badge: m.badge } : {}) };
         return m.type === "video"
           ? { type: "video" as const, src: m.src, poster: m.poster ?? "", alt: m.alt, ...extras }
           : { type: "image" as const, src: m.src, alt: m.alt, ...extras };

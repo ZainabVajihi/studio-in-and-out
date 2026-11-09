@@ -10,6 +10,7 @@ function Fig({ m, cls }: { m: Media; cls: string }) {
       ) : (
         <img src={m.src} alt={m.alt} loading="lazy" />
       )}
+      {m.badge && <span className="img-badge">{m.badge}</span>}
     </figure>
   );
 }

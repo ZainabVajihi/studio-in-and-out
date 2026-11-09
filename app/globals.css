@@ -293,3 +293,5 @@ footer{background:var(--ink);color:#bdbdbd;padding-block:clamp(56px,7vw,96px) ca
 .proj .full-fig{grid-column:1/-1;background:transparent;overflow:visible}
 .proj .full-fig img,.proj .full-fig video{width:100%;height:auto;object-fit:contain;position:static;background:var(--paper)}
 .proj .full-fig figcaption{font-size:13px;font-weight:500;color:var(--concrete);margin-top:10px}
+.proj figure{position:relative}
+.img-badge{position:absolute;left:12px;top:12px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;pointer-events:none}

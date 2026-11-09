@@ -2,7 +2,7 @@
 // database (supabase/schema.sql), so the admin panel can edit them later.
 
 // display "full": shown across the whole width, uncropped (plans, panoramas).
-type MediaExtras = { display?: "full"; caption?: string };
+type MediaExtras = { display?: "full"; caption?: string; badge?: string }; // badge: small label on the photo, e.g. "Visualisation"
 export type Media =
   | ({ type: "image"; src: string; alt: string } & MediaExtras)
   | ({ type: "video"; src: string; poster: string; alt: string } & MediaExtras);

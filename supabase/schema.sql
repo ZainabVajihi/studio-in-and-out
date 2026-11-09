@@ -40,12 +40,14 @@ create table if not exists public.project_media (
   alt         text not null default '',
   display     text check (display in ('full')),     -- 'full' = across the whole width, uncropped
   caption     text,
+  badge       text,                                 -- small label on the photo, e.g. 'Visualisation'
   sort_order  integer not null default 0
 );
 -- Columns added after the first release (safe to run on an existing database).
 alter table public.projects      add column if not exists documents jsonb not null default '[]'::jsonb;
 alter table public.project_media add column if not exists display text check (display in ('full'));
 alter table public.project_media add column if not exists caption text;
+alter table public.project_media add column if not exists badge text;
 
 create index if not exists project_media_project_idx on public.project_media (project_id, sort_order);
 

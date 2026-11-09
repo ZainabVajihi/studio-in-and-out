@@ -306,6 +306,10 @@
       {
         "label": "Location",
         "value": "Lonavala"
+      },
+      {
+        "label": "Status",
+        "value": "Under construction"
       }
     ],
     "concept_note": [
@@ -325,22 +329,26 @@
       {
         "type": "image",
         "src": "/assets/lon_aerial.jpg",
-        "alt": "Aerial view of the villa: clay-tile roofs around a circular entrance pavilion, set against the Sahyadri hills"
+        "alt": "Aerial view of the villa: clay-tile roofs around a circular entrance pavilion, set against the Sahyadri hills",
+        "badge": "Visualisation"
       },
       {
         "type": "image",
         "src": "/assets/lon_gazebo.jpg",
-        "alt": "A timber gazebo over a lily pond, reached by stepping stones, beside the clay-tiled cottage"
+        "alt": "A timber gazebo over a lily pond, reached by stepping stones, beside the clay-tiled cottage",
+        "badge": "Visualisation"
       },
       {
         "type": "image",
         "src": "/assets/lon_cottage.jpg",
-        "alt": "A cottage wing with a planted balcony and a tiled pergola, looking towards the hills"
+        "alt": "A cottage wing with a planted balcony and a tiled pergola, looking towards the hills",
+        "badge": "Visualisation"
       },
       {
         "type": "image",
         "src": "/assets/lon_interior.jpg",
-        "alt": "A reading corner with a striped armchair, timber ceiling and tall windows onto the garden"
+        "alt": "A reading corner with a striped armchair, timber ceiling and tall windows onto the garden",
+        "badge": "Visualisation"
       },
       {
         "type": "image",

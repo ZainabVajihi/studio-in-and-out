@@ -26,7 +26,7 @@ for (const p of projects) {
   out.push(`delete from public.project_media where project_id = (select id from public.projects where slug = ${q(p.slug)});`);
   p.media.forEach((m, i) => {
     out.push(
-      `insert into public.project_media (project_id, type, src, poster, alt, display, caption, sort_order) values ((select id from public.projects where slug = ${q(p.slug)}), ${q(m.type)}, ${q(m.src)}, ${q(m.poster ?? null)}, ${q(m.alt)}, ${q(m.display ?? null)}, ${q(m.caption ?? null)}, ${i + 1});`,
+      `insert into public.project_media (project_id, type, src, poster, alt, display, caption, badge, sort_order) values ((select id from public.projects where slug = ${q(p.slug)}), ${q(m.type)}, ${q(m.src)}, ${q(m.poster ?? null)}, ${q(m.alt)}, ${q(m.display ?? null)}, ${q(m.caption ?? null)}, ${q(m.badge ?? null)}, ${i + 1});`,
     );
   });
   out.push("");
