@@ -85,8 +85,8 @@
         "tag": "In",
         "title": "Interior design",
         "text": "Homes and workplaces: planning, joinery, materials, lighting and styling.",
-        "image": "/assets/ar_hero.jpg",
-        "alt": "Living room with a cushioned TV wall, armchair and sheer curtains"
+        "image": "/assets/r1_bed.jpg",
+        "alt": "Bedroom with a sage upholstered headboard beneath a botanical wall mural"
       },
       {
         "tag": "&",
@@ -99,8 +99,8 @@
         "tag": "Out",
         "title": "Architecture",
         "text": "New buildings, renovations and façades, planned around site and purpose.",
-        "image": "/assets/hero2.jpg",
-        "alt": "Bedroom window looking out over the Mumbai skyline"
+        "image": "/assets/lon_cottage.jpg",
+        "alt": "Lonavala Abode: a clay-tiled bungalow with a planted balcony, looking towards the hills (visualisation)"
       }
     ]
   },
